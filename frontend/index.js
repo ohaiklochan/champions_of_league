@@ -67,3 +67,23 @@ function userFormSubmission() {
 }
 
 // delete - delete a user
+
+
+// const buttons = document.getElementsByClassName("delete-bttn")
+// console.log(buttons)
+// for (const button of buttons) {
+//     button.addEventListener("click", () => {
+//         debugger;
+//     })
+// }
+
+function deleteUser() {
+    let userId = parseInt(event.target.dataset.id)
+
+    fetch(`${BASE_URL}/users/${userId}`, {
+        method: 'DELETE'
+    })
+
+    this.location.reload(true);
+
+}
