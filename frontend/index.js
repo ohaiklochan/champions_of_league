@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     createForm();
     fetchUsers();
-    showChampion()
+    Champion.showChampion()
 })
 
 // fetch requests:
@@ -28,14 +28,14 @@ function createForm() {
 
     usersForm.innerHTML +=
     `
-    <center>
+    <left>
     <form>
-    Name: <input type="text" id="name"><br>
-    Email: <input type="text" id="email"><br>
-    Username: <input type="text" id="username"><br>
+    <h3> Name: <input type="text" id="name"></h3>
+    <h3> Email: <input type="text" id="email"></h3>
+    <h3> Username: <input type="text" id="username"></h3>
     <input type="submit" value="Sign up!">
     </form>
-    </center>
+    </left>
     `
 
     usersForm.addEventListener("submit", userFormSubmission)
@@ -87,21 +87,18 @@ function deleteUser() {
         method: 'DELETE'
     })
 
-    this.location.reload(true);
+    // this.location.reload(true);
+    //rewrite this in order to delete this from the DOM
 
 }
 
-function showChampion() {
-    let theChampions = {
-        src: "src/champion.js"
-    };
+// function showChampion() {
+//     let theChampions = {
+//         src: "src/champion.js"
+//     };
 
-    let preBuffer = [];
-    for (let i = 0, j = theChampions.length; i < j; i++) {
-        preBuffer[i] = new Champion();
-        preBuffer[i].src = theChampions[i].src;
-    }
-    
-    
-
-}
+//     let preBuffer = [];
+//     for (let i = 0, j = theChampions.length; i < j; i++) {
+//         preBuffer[i] = new Champion();
+//         preBuffer[i].src = theChampions[i].src;
+//     }
