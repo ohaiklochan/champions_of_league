@@ -27,12 +27,14 @@ function createForm() {
 
     usersForm.innerHTML +=
     `
+    <center>
     <form>
     Name: <input type="text" id="name"><br>
     Email: <input type="text" id="email"><br>
     Username: <input type="text" id="username"><br>
     <input type="submit" value="Sign up!">
     </form>
+    </center>
     `
 
     usersForm.addEventListener("submit", userFormSubmission)
