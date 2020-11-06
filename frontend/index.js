@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     createForm();
-    fetchUsers()
+    fetchUsers();
+    showChampion()
 })
 
 // fetch requests:
@@ -87,5 +88,20 @@ function deleteUser() {
     })
 
     this.location.reload(true);
+
+}
+
+function showChampion() {
+    let theChampions = {
+        src: "src/champion.js"
+    };
+
+    let preBuffer = [];
+    for (let i = 0, j = theChampions.length; i < j; i++) {
+        preBuffer[i] = new Champion();
+        preBuffer[i].src = theChampions[i].src;
+    }
+    
+    
 
 }

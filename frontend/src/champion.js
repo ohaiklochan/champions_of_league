@@ -8,7 +8,7 @@ class Champion {
 
     // instance method thats going to render the object to the DOM goes here
 
-    renderChampion() {
+    showChampion() {
         let championDiv = document.getElementById("champions-grid")
 
         championDiv.innerHTML +=
@@ -183,6 +183,6 @@ class Champion {
             <img src="paris.png">
         </div>
     </div>
-`
+    `
     }
 }
