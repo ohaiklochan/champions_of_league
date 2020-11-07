@@ -4,10 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Champions of League</title>
         <script src="index.js"></script>
         <script src="src/champion.js"></script>
         <script src="src/user.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>    
     <body>
         <div id="users-form">
@@ -26,11 +28,11 @@
 
         </div>
 
-        <div class="sidenav">
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-        </div>
+        <a href="javascript:void(0);" class="like-button">
+            <i class="material-icons not-liked bouncy">favorite_border</i>
+            <i class="material-icons is-liked bouncy">favorite</i>
+            <span class="like-overlay"></span>
+        </a>
 
 
     </body>

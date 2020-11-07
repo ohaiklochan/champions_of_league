@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: Impact, Charcoal, sans-serif;
-  background: url("img/backgrounds/League-Of-Legends-Wallpapers-HD-046.jpg"); 
+  background: url("img/backgrounds/LolBackground.jpg"); 
   background-attachment: fixed;
   background-repeat: no-repeat; 
   background-size: cover;
@@ -78,4 +78,51 @@ ul {
 .column img {
     margin-top: 8px;
     vertical-align: middle;
+}
+
+.like-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: grey;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin: 0 auto;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.like-button {
+  .like-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: $heart;
+      transform: scale(0);
+      transition: all .4s;
+      z-index: 0;
+  }
+}
+
+.like-button {
+  i {
+      &.not-liked {
+        display: block;
+        color: $white;
+        position: relative;
+        z-index: 1;
+      }
+      &.is-liked {
+        display: none;
+        color: $white;
+        position: relative;
+        z-index: 1;
+      }
+  }
 }
