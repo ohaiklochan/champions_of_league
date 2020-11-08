@@ -53,8 +53,11 @@ function signUp() {
     })
 
     .then(resp => resp.json())
-    .then(user => {
-        let u = new User(user.id, user.name, user.email, user.username)
-        u.renderUser();
+    .then(response => {
+        currentUser = response  
+         if (response.id) {
+            mainContainer.id="main-container"
+            startMainPage()
+         }
     })
 }

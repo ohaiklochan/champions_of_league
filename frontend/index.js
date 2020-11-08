@@ -31,4 +31,13 @@ function deleteUser() {
 
 }
 
-
+function startMainPage(){
+    mainContainer.innerHTML=""
+   
+    if (!userCollections.length===0) {
+        mainContainer.id="main-container-2"
+    }
+    else {
+        mainContainer.id="main-container"
+    }
+}

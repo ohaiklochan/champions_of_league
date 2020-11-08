@@ -11,7 +11,9 @@ class Champion {
     static showChampion() {
         let championDiv = document.getElementById("champions-grid")
 
-        championDiv.innerHTML +=
+        championDiv.innerHTML = ""
+    }
+}
     //     `
     //     <center>
     //     <div class="row">
@@ -202,5 +204,5 @@ class Champion {
     // </div>
     // </center>
     // `
-    }
-}
+//     }
+// }
