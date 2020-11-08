@@ -1,7 +1,4 @@
 // const BASE_URL = "http://127.0.0.1:3000/"
-let navContainer=document.getElementById('top-container')
-let navBarSection=document.getElementById('nav-bar')
-let navBarUl=document.getElementById('nav-ul')
 let mainContainer=document.getElementById('main-container')
 
 let body=document.querySelector('body')
@@ -12,6 +9,14 @@ let leftCard=document.createElement('div')
 leftCard.className="card-info"
 
 let rightSide=document.getElementById('side-bar')
+
+let mainObj={}
+let mainCatg={}
+let globalNav=undefined
+let championId={}
+let globalListId={}
+let currentUser={}
+let userLists=[]
 
 // function userLogIn() {
 //     let userLogIn = document.getElementById("log-in")
@@ -74,7 +79,7 @@ let rightSide=document.getElementById('side-bar')
 //          }
 //     })
 // }
-let signUPAction=() => {
+let signUpAction = () => {
     body.className="login"
     mainContainer.innerHTML=""
     mainContainer.id="main-container"
@@ -85,7 +90,7 @@ let signUPAction=() => {
     signupForm.className="form-container"
     signupForm.id="signup-form"
     let label=document.createElement('h2')
-    label.innerText="Signup"
+    label.innerText="Sign Up"
     let nameInput=document.createElement('input')
     nameInput.placeholder="Name"
     nameInput.name="name"
@@ -108,37 +113,37 @@ let signUPAction=() => {
     mainContainer.innerHTML=""
     mainContainer.id="main-container-3"
     body.className="login"
-      let logInPopup=document.createElement('div')
-      logInPopup.className="login-form-popup"
-      let logInForm=document.createElement('form')
+    let logInPopup=document.createElement('div')
+    logInPopup.className="login-form-popup"
+    let logInForm=document.createElement('form')
       
-      logInForm.className="form-container"
-      logInForm.id="signup-form"
-      let labelLogin=document.createElement('h2')
-      labelLogin.innerText="Login"
-      let nameInputLogin=document.createElement('input')
-      nameInputLogin.placeholder="Name"
-      nameInputLogin.name="name"
-      nameInputLogin.type="text"
-      let emailInputLogin=document.createElement('input')
-      emailInputLogin.placeholder="Email"
-      emailInputLogin.name="email"
-      emailInputLogin.type="text"
-      let nameInputLoginF=document.createElement('input')
-      nameInputLoginF.placeholder="User Name"
-      nameInputLoginF.name="username"
-      nameInputLoginF.type="text"
-      let login=document.createElement("BUTTON")
-      login.type="submit"
-      login.class="btn"
-      login.innerText="Login!"
+    logInForm.className="form-container"
+    logInForm.id="signup-form"
+    let labelLogin=document.createElement('h2')
+    labelLogin.innerText="Login"
+    let nameInputLogin=document.createElement('input')
+    nameInputLogin.placeholder="Name"
+    nameInputLogin.name="name"
+    nameInputLogin.type="text"
+    let emailInputLogin=document.createElement('input')
+    emailInputLogin.placeholder="Email"
+    emailInputLogin.name="email"
+    emailInputLogin.type="text"
+    let nameInputLoginF=document.createElement('input')
+    nameInputLoginF.placeholder="User Name"
+    nameInputLoginF.name="username"
+    nameInputLoginF.type="text"
+    let login=document.createElement("BUTTON")
+    login.type="submit"
+    login.class="btn"
+    login.innerText="Login!"
 
 
-    logInForm.append(labelLogin, nameInputLogin, nameInputLoginF, login)
+    logInForm.append(labelLogin, nameInputLogin, emailInputLogin, nameInputLoginF, login)
     logInPopup.append(logInForm)
     mainContainer.append(logInPopup)
 
-   signupForm.append(label, nameInput, usernameInput, createAcct)
+   signupForm.append(label, nameInput, emailInput, usernameInput, createAcct)
    signUpPopup.append(signupForm)
    mainContainer.append(signUpPopup)
 
@@ -147,48 +152,75 @@ let signUPAction=() => {
     
         e.preventDefault()
         body.className="main"
-       let getName=e.target.name.value
-       let userName=e.target.username.value
+        let name=e.target.name.value
+        let username=e.target.username.value
         fetch(`${BASE_URL}/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Accept: 'application/json'
+                'Accept': 'application/json'
              },
              body: JSON.stringify({
-                 name: getName,
-                 username:userName
+                 name: name,
+                 username: username
              })
         })
-        .then(resp=>resp.json())
+        .then(resp => resp.json())
         .then(response => {
-           currentUser=response  
-            if(response.id){
+           currentUser = response  
+            if(response.id) {
                 mainContainer.id="main-container"
-              startMainPage()
+            startMainPage()
             }
         })
         
-     })
+    })
 
 
-     logInForm.addEventListener("submit", (evt) => {
-         evt.preventDefault()
+    logInForm.addEventListener("submit", (evt) => {
+        evt.preventDefault()
         console.log("click")
     
-         let userName=evt.target.username.value
-         fetch(`${BASE_URL}/users/${userName}`)
-         .then(resp => resp.json())
-         .then(foundUser => {
-             currentUser=foundUser
-          if(foundUser.username===userName){
-              console.log(foundUser)
-              console.log(currentUser)
-             collectionFormLogin()
-          }
+        let username=evt.target.username.value
+        fetch(`${BASE_URL}/users/${currentUser}`)
+        .then(resp => resp.json())
+        .then(foundUser => {
+            currentUser = foundUser
+        if (foundUser.username===username) {
+            console.log(foundUser) 
+            console.log(currentUser)
+            listFormLogin()
+            }
     
- })
-})
- }
-signUPAction()
+        })
+    })
+}
+signUpAction()
 console.log(currentUser)
+
+
+function startMainPage(){
+    mainContainer.innerHTML=""
+   
+    if (!userLists.length===0) {
+        mainContainer.id="main-container-2"
+    }
+    else {
+        mainContainer.id="main-container"
+    }
+
+    fetch(`${BASE_URL}/users/${currentUser.id}`)
+    .then(resp=> resp.json())
+    .then(user => {
+        currentUser=user
+        if (user.lists.length===0) {
+            rightSide.style.display="none"
+        }
+        else{
+           
+        }
+    
+        displayList(currentUser.lists)
+    })
+
+}  

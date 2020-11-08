@@ -20,8 +20,6 @@ function fetchUsers() {
 }
 
 function logOut() {
-    // let userId = parseInt(event.target.dataset.id)
-
     fetch(`${BASE_URL}/users/${userId}`, {
         method: 'DELETE'
     })
@@ -30,13 +28,5 @@ function logOut() {
 
 }
 
-function startMainPage(){
-    mainContainer.innerHTML=""
-   
-    if (!userCollections.length===0) {
-        mainContainer.id="main-container-2"
-    }
-    else {
-        mainContainer.id="main-container"
-    }
-}
+
+
