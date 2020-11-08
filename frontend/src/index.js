@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-    createForm();
-    fetchUsers();
-    Champion.showChampion()
-})
+// document.addEventListener("DOMContentLoaded", () => {
+//     createForm();
+//     fetchUsers();
+//     Champion.showChampion()
+// })
 
 // fetch requests:
 // read - fetch users index
@@ -19,15 +19,14 @@ function fetchUsers() {
     } )
 }
 
-function deleteUser() {
-    let userId = parseInt(event.target.dataset.id)
+function logOut() {
+    // let userId = parseInt(event.target.dataset.id)
 
     fetch(`${BASE_URL}/users/${userId}`, {
         method: 'DELETE'
     })
 
-    // this.location.reload(true);
-    //rewrite this in order to delete this from the DOM
+    window.location.reload()
 
 }
 
