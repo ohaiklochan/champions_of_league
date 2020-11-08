@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="assets/css/image-lists/image-list-small.css"> -->
         <title>Champions of League</title>
         <script src="index.js"></script>
         <script src="src/champion.js"></script>
@@ -12,27 +13,442 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>    
     <body>
-        <div id="users-form">
+        <div id="log-in"></div>
 
-            
-        </div>
-        <div id="users-container">
+        <div id="logged-in-title"></div>
 
+        <div id="users-form"></div>
 
-
-        </div>
+        <div id="users-container"></div>
 
         <div id="champions-grid">
-
-
-
+            <ul class="image-list-small">
+                <li>
+                  <a href="#" style="background-image: url('img/champions/AatroxSquare.png');"></a>
+                  <div class="details">
+                    <h3><a href="#">Aatrox</a></h3>
+                    <p class="tagline">The Darkin Blade</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" style="background-image: url('img/champions/AhriSquare.png');"></a>
+                  <div class="details">
+                    <h3><a href="#">Ahri</a></h3>
+                    <p class="tagline">The Nine-Tailed Fox</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" style="background-image: url('img/champions/AkaliSquare.png');"></a>
+                  <div class="details">
+                    <h3><a href="#">Akali</a></h3>
+                    <p class="tagline">The Rouge Assassin</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" style="background-image: url('img/champions/AlistarSquare.png');"></a>
+                  <div class="details">
+                    <h3><a href="#">Alistar</a></h3>
+                    <p class="tagline">The Minotaur</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" style="background-image: url('img/champions/AmumuSquare.png');"></a>
+                  <div class="details">
+                    <h3><a href="#">Amumu</a></h3>
+                    <p class="tagline">The Sad Mummy</p>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" style="background-image: url('img/champions/AniviaSquare.png');"></a>
+                  <div class="details">
+                    <h3><a href="#">Anivia</a></h3>
+                    <p class="tagline">The Cryophoenix</p>
+                  </div>
+                </li>
+                <li>
+                    <a href="#" style="background-image: url('img/champions/AnnieSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Annie</a></h3>
+                      <p class="tagline">The Dark Child</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/ApheliosSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aphelios</a></h3>
+                      <p class="tagline">The Weapon of the Faithful</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AsheSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ashe</a></h3>
+                      <p class="tagline">The Frost Archer</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/Aurelion_SolSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aurelion Sol</a></h3>
+                      <p class="tagline">The Star Forger</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AzirSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Azir</a></h3>
+                      <p class="tagline">The Emperor of the Sands</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/BardSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Bard</a></h3>
+                      <p class="tagline">The Wandering Caretaker</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/BlitzcrankSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Blitzcrank</a></h3>
+                      <p class="tagline">The Great Steam Golem</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/BrandSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Brand</a></h3>
+                      <p class="tagline">The Burning Vengeance</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/BraumSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Braum</a></h3>
+                      <p class="tagline">The Heart of the Freljord</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/CaitlynSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Caitlyn</a></h3>
+                      <p class="tagline">The Sheriff of Piltover</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/CamilleSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Camille</a></h3>
+                      <p class="tagline">The Steel Shadow</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/CassiopeiaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Cassiopeia</a></h3>
+                      <p class="tagline">The Serpent's Embrace</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/ChoGathSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Cho'Gath</a></h3>
+                      <p class="tagline">The Terror of the Void</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/CorkiSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Corki</a></h3>
+                      <p class="tagline">The Daring Bombardier</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/DariusSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Darius</a></h3>
+                      <p class="tagline">The Hand of Noxas</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/DianaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Diana</a></h3>
+                      <p class="tagline">The Scorn of the Moon</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/Dr._MundoSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Dr. Mundo</a></h3>
+                      <p class="tagline">The Madman of Zaun</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/DravenSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Draven</a></h3>
+                      <p class="tagline">The Glorious Executioner</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/EkkoSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ekko</a></h3>
+                      <p class="tagline">The Boy Who Shattered Time</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/EliseSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Elise</a></h3>
+                      <p class="tagline">The Spider Queen</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/EvelynnSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Evelynn</a></h3>
+                      <p class="tagline">Agony's Embrace</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/EzrealSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ezreal</a></h3>
+                      <p class="tagline">The Prodigal Explorer</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/FiddlesticksSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Fiddlesticks</a></h3>
+                      <p class="tagline">The Ancient Fear</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/FioraSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Fiora</a></h3>
+                      <p class="tagline">The Grand Duelist</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AatroxSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aatrox</a></h3>
+                      <p class="tagline">The Darkin Blade</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AhriSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ahri</a></h3>
+                      <p class="tagline">The Nine-Tailed Fox</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AkaliSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Akali</a></h3>
+                      <p class="tagline">The Rouge Assassin</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AlistarSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Alistar</a></h3>
+                      <p class="tagline">The Minotaur</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AmumuSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Amumu</a></h3>
+                      <p class="tagline">The Sad Mummy</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AniviaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Anivia</a></h3>
+                      <p class="tagline">The Cryophoenix</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AatroxSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aatrox</a></h3>
+                      <p class="tagline">The Darkin Blade</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AhriSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ahri</a></h3>
+                      <p class="tagline">The Nine-Tailed Fox</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AkaliSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Akali</a></h3>
+                      <p class="tagline">The Rouge Assassin</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AlistarSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Alistar</a></h3>
+                      <p class="tagline">The Minotaur</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AmumuSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Amumu</a></h3>
+                      <p class="tagline">The Sad Mummy</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AniviaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Anivia</a></h3>
+                      <p class="tagline">The Cryophoenix</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AatroxSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aatrox</a></h3>
+                      <p class="tagline">The Darkin Blade</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AhriSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ahri</a></h3>
+                      <p class="tagline">The Nine-Tailed Fox</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AkaliSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Akali</a></h3>
+                      <p class="tagline">The Rouge Assassin</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AlistarSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Alistar</a></h3>
+                      <p class="tagline">The Minotaur</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AmumuSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Amumu</a></h3>
+                      <p class="tagline">The Sad Mummy</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AniviaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Anivia</a></h3>
+                      <p class="tagline">The Cryophoenix</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AatroxSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aatrox</a></h3>
+                      <p class="tagline">The Darkin Blade</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AhriSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ahri</a></h3>
+                      <p class="tagline">The Nine-Tailed Fox</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AkaliSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Akali</a></h3>
+                      <p class="tagline">The Rouge Assassin</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AlistarSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Alistar</a></h3>
+                      <p class="tagline">The Minotaur</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AmumuSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Amumu</a></h3>
+                      <p class="tagline">The Sad Mummy</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AniviaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Anivia</a></h3>
+                      <p class="tagline">The Cryophoenix</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AatroxSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Aatrox</a></h3>
+                      <p class="tagline">The Darkin Blade</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AhriSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Ahri</a></h3>
+                      <p class="tagline">The Nine-Tailed Fox</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AkaliSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Akali</a></h3>
+                      <p class="tagline">The Rouge Assassin</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AlistarSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Alistar</a></h3>
+                      <p class="tagline">The Minotaur</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AmumuSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Amumu</a></h3>
+                      <p class="tagline">The Sad Mummy</p>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="#" style="background-image: url('img/champions/AniviaSquare.png');"></a>
+                    <div class="details">
+                      <h3><a href="#">Anivia</a></h3>
+                      <p class="tagline">The Cryophoenix</p>
+                    </div>
+                  </li>
+              </ul>
         </div>
 
-        <a href="javascript:void(0);" class="like-button">
-            <i class="material-icons not-liked bouncy">favorite_border</i>
-            <i class="material-icons is-liked bouncy">favorite</i>
-            <span class="like-overlay"></span>
-        </a>
+        <div id="side-list">
+            <h2 class="side-list-label">My Favorites:</h2>
+        </div>
 
 
     </body>
