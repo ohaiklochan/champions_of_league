@@ -1,4 +1,5 @@
 class ListController < ApplicationController
+
   def index
     @list=List.all
     render json: @list
@@ -11,7 +12,7 @@ class ListController < ApplicationController
 
   def create
     @champions = Champion.find(params[:champion_id])
-    @list = List.create(collection_params)
+    @list = List.create(list_params)
     @champions.list_id = @list.id
     @list.champions << @champions
     if @list.valid?
