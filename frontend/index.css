@@ -8,7 +8,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  text-shadow: 2px 2px 5px rgb(251, 255, 1);
+  text-shadow: 2px 2px 5px rgb(1, 175, 255);
 }
 
 li, ul {
@@ -118,7 +118,31 @@ p {
   margin-top: 26px;
 }
 
-#main-container-3{
+#main-container {
+  float:center;
+  width: auto;
+  height: auto;
+  position:relative;
+}
+
+#main-container-2 {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows:minmax(auto, auto);
+  margin-top:200px;
+  margin-left: 40px;
+  float:center;
+  background: rgb(0, 0, 0);
+  opacity: .8;
+  border-style:solid;
+  border-color: #008ee0;
+  border-radius: 5px;
+  width: 55%;
+  height: auto;
+  position:relative;
+}
+
+#main-container-3 {
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows:minmax(auto, auto);
@@ -126,11 +150,38 @@ p {
   margin-left: 40px;
   float:center;
   background: rgb(0, 0, 0);
+  opacity: .8;
   border-style:solid;
   border-color: #008ee0;
-  /* box-shadow:10px 20px 0px 5px #ffffff; */
-  border-radius: 20px;
-  width: 80%;
-  height: 190px;
+  border-radius: 5px;
+  width: 65%;
+  height: 150px;
   position:relative;
 }
+
+/* input{
+  position:relative;
+   width: 100px;
+   margin-left:30px;
+   width: 100%;
+   padding: 15px;
+   border-style: solid;
+   border-width: 4px;
+   border: #1462bb;
+ }
+
+ .form-popup {
+   padding: 10px;
+   position: absolute;
+   width:30px;
+   height: 600px;
+   left: 300px;
+ }
+
+ .login-form-popup {
+   padding: 10px;
+   position: absolute;
+   width:30px;
+   height: 600px;
+   left: 250px;
+ } */

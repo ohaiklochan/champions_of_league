@@ -75,36 +75,37 @@ let rightSide=document.getElementById('side-bar')
 //     })
 // }
 let signUPAction=() => {
-    // rightSide.style.display="none"
-  body.className="login"
- mainContainer.innerHTML=""
-// navContainer.style.visibility="false"
- mainContainer.id="main-container"
- body.className="login"
-   let signUpPopup=document.createElement('div')
-   signUpPopup.className="signup-form-popup"
-   let signupForm=document.createElement('form')
-   signupForm.className="form-container"
-   signupForm.id="signup-form"
-   let label=document.createElement('h2')
-   label.innerText="Signup"
-   let nameInput=document.createElement('input')
-   nameInput.placeholder="Name"
-   nameInput.name="name"
-   nameInput.type="text"
-   let usernameInput=document.createElement('input')
-   usernameInput.placeholder="User Name"
-   usernameInput.name="username"
-   usernameInput.type="text"
-   let createAcct=document.createElement("BUTTON")
-   createAcct.type="submit"
-   createAcct.class="btn"
-   createAcct.innerText="Create Account!"
+    body.className="login"
+    mainContainer.innerHTML=""
+    mainContainer.id="main-container"
+    body.className="login"
+    let signUpPopup=document.createElement('div')
+    signUpPopup.className="signup-form-popup"
+    let signupForm=document.createElement('form')
+    signupForm.className="form-container"
+    signupForm.id="signup-form"
+    let label=document.createElement('h2')
+    label.innerText="Signup"
+    let nameInput=document.createElement('input')
+    nameInput.placeholder="Name"
+    nameInput.name="name"
+    nameInput.type="text"
+    let emailInput=document.createElement('input')
+    emailInput.placeholder="Email"
+    emailInput.name="email"
+    emailInput.type="text"
+    let usernameInput=document.createElement('input')
+    usernameInput.placeholder="User Name"
+    usernameInput.name="username"
+    usernameInput.type="text"
+    let createAcct=document.createElement("BUTTON")
+    createAcct.type="submit"
+    createAcct.class="btn"
+    createAcct.innerText="Create Account!"
 
 
  
-   mainContainer.innerHTML=""
-//    navContainer.style.visibility="false"
+    mainContainer.innerHTML=""
     mainContainer.id="main-container-3"
     body.className="login"
       let logInPopup=document.createElement('div')
@@ -119,6 +120,10 @@ let signUPAction=() => {
       nameInputLogin.placeholder="Name"
       nameInputLogin.name="name"
       nameInputLogin.type="text"
+      let emailInputLogin=document.createElement('input')
+      emailInputLogin.placeholder="Email"
+      emailInputLogin.name="email"
+      emailInputLogin.type="text"
       let nameInputLoginF=document.createElement('input')
       nameInputLoginF.placeholder="User Name"
       nameInputLoginF.name="username"
