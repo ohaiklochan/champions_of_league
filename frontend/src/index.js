@@ -1,210 +1,176 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     createForm();
-//     fetchUsers();
-//     Champion.showChampion()
-// })
-
-// fetch requests:
-// read - fetch users index
 const BASE_URL = "http://127.0.0.1:3000/"
+let giantChampionsArray=[]
+let listFormLogin = () => {
+    mainContainer.innerHTML=""
 
-function fetchUsers() {
     fetch(`${BASE_URL}/users`)
-    .then(resp => resp.json())
-    .then(users => {
-        for (const user of users) {
-            let u = new User(user.id, user.name, user.email, user.username)
-            u.renderUser();
-        }
-    } )
-}
-
-function logOut() {
-    fetch(`${BASE_URL}/users/${userId}`, {
-        method: 'DELETE'
-    })
-
-    window.location.reload()
-
-}
-
-let giantItemsArray=[]
-let collectionFormLogin=()=>{
-  mainContainer.innerHTML=""
-
-    fetch('http://localhost:5000/users')
     .then(resp=>resp.json())
     .then(userArray => {
-  console.log(userArray)
+        console.log(userArray)
 
-    let collBoards=[]
-      userArray.forEach((user) => {
-          if(user.id===currentUser.id){
-            collBoards.push(user.collection_boards)
-            currentUser.id=user.id
+        let lists=[]
+        userArray.forEach((user) => {
+            if(user.id===currentUser.id) {
+                lists.push(user.list)
+                currentUser.id=user.id
           
       
           }             
       })
 
-      userCollections.push(collBoards)
+      userLists.push(lists)
 
-      console.log(collBoards)
-      console.log(userCollections)
-      collBoards[0].forEach((board)=> {
+      console.log(lists)
+      console.log(userLists)
+      lists[0].forEach((userList)=> {
      
-       console.log(board)
+       console.log(userList)
     
         let sideCard=document.createElement('div')
             sideCard.id="side-bar"
             sideCard.className="container"
-            let buttonAndItem=document.createElement('div')
-            buttonAndItem.className="button-and-card"
+            let button=document.createElement('div')
+            button.className="button"
        
-            let sweater3=document.createElement('img')
-            sweater3.src="styles/images/sweater3.png"
-            sweater3.id="sweater3"
-            buttonAndItem.append(sweater3)
-            rightSide.append(buttonAndItem)
+            rightSide.append(button)
             let sideLabel=document.createElement('h2')
-            sideLabel.className="categ-name"
+            sideLabel.className="champ-name"
             
-            sideLabel.innerText=board.name
-            buttonAndItem.append(sideLabel)
-            rightSide.append(buttonAndItem)
+            sideLabel.innerText=list.name
+            button.append(sideLabel)
+            rightSide.append(button)
 
             let deleteButton=document.createElement('BUTTON')
-deleteButton.type="submit"
-deleteButton.innerText="Remove"
-deleteButton.className="deleteButton"
-buttonAndItem.append(deleteButton)
-rightSide.append(buttonAndItem)
+            deleteButton.type="submit"
+            deleteButton.innerText="Remove"
+            deleteButton.className="deleteButton"
+            button.append(deleteButton)
+            rightSide.append(button)
 
 
-let updateButton=document.createElement("BUTTON")
-updateButton.type="submit"
-updateButton.className="submitButton"
-updateButton.innerHTML="Update Name"
-buttonAndItem.append(updateButton)
-rightSide.append(buttonAndItem)
-let getCard=document.getElementsByClassName('card')
-mainContainer.id="main-container-2"
-rightSide.style.display="block"
-getCard.className="card-2"
+            let updateButton=document.createElement("BUTTON")
+            updateButton.type="submit"
+            updateButton.className="submitButton"
+            updateButton.innerHTML="Update Name"
+            button.append(updateButton)
+            rightSide.append(button)
+            let getCard=document.getElementsByClassName('card')
+            mainContainer.id="main-container-2"
+            rightSide.style.display="block"
+            getCard.className="card-2"
             
 
  
-            findItemsInCollectionBoard(board.id)
+            findChampionsInList(userList.id)
      
-             let delayed=()=>{
-                for(let i=0; i<giantItemsArray.length; i++){
-                    if(giantItemsArray[i]["collection_board"]["id"]===board.id){
+            let delayed=()=>{
+                for(let i=0; i<giantChampionsArray.length; i++){
+                    if(giantChampionsArray[i]["list"]["id"]===userList.id){
                             
-                        let categName=document.createElement('h5')
-                        categName.className="categ-name"
-                        categName.innerHTML=giantItemsArray[i]["name"]
-                        buttonAndItem.append(categName)
+                        let champName=document.createElement('h5')
+                        champName.className="champ-name"
+                        champName.innerHTML=giantChampionsArray[i]["name"]
+                        button.append(champName)
                         console.log("hello")
-                       rightSide.append(buttonAndItem)
+                        rightSide.append(button)
                     }
                
-             }
+                } 
             }
 
             setTimeout(delayed,200)
       
 
          
-      })
- console.log(giantItemsArray)
+        })
+        console.log(giantChampionsArray)
 
-let buttonsDelay=()=>{
+        let buttonsDelay = () => {
 
-let deleteButton=document.createElement('BUTTON')
-deleteButton.type="submit"
-deleteButton.innerText="Remove"
-deleteButton.className="deleteButton"
-buttonAndItem.append(deleteButton)
-rightSide.append(buttonAndItem)
-
-
-let updateButton=document.createElement("BUTTON")
-updateButton.type="submit"
-updateButton.className="submitButton"
-updateButton.innerHTML="Update Name"
-buttonAndItem.append(updateButton)
-rightSide.append(buttonAndItem)
-let getCard=document.getElementsByClassName('card')
-mainContainer.id="main-container-2"
-rightSide.style.display="block"
-getCard.className="card-2"
-deleteButton.addEventListener('click', (evt) => {
-    fetch(`http://localhost:5000/collection_boards/${collection.id}`, {
-       method: 'DELETE'
-   })
-   buttonAndItem.remove()
-   userCollections.pop(collection)
-
-})
+            let deleteButton=document.createElement('BUTTON')
+            deleteButton.type="submit"
+            deleteButton.innerText="Remove"
+            deleteButton.className="deleteButton"
+            button.append(deleteButton)
+            rightSide.append(button)
 
 
-//update collection name form 
-updateButton.addEventListener("click", (evt) => {
-evt.preventDefault()
-userCollections.pop(collection)
-globalCollectionId=collection.id
-mainContainer.innerHTML=""
-let updateform=document.createElement('form')
+            let updateButton=document.createElement("BUTTON")
+            updateButton.type="submit"
+            updateButton.className="submitButton"
+            updateButton.innerHTML="Update Name"
+            button.append(updateButton)
+            rightSide.append(button)
+            let getCard=document.getElementsByClassName('card')
+            mainContainer.id="main-container-2"
+            rightSide.style.display="block"
+            getCard.className="card-2"
+            deleteButton.addEventListener('click', (evt) => {
+                fetch(`${BASE_URL}/lists/${list.id}`, {
+                    method: 'DELETE'
+                })
+                button.remove()
+                userLists.pop(list)
 
-updateform.className="form-container"
-let heading=document.createElement('h3')
-heading.innerText="Update Collection Name!"
-let inputField=document.createElement('input')
-inputField.placeholder="Update Collection Name"
-inputField.type="text"
-
-let updateButton=document.createElement('BUTTON')           
-updateButton.className="btn"
-updateButton.type="submit"
-updateButton.innerText="Update!"
-updateform.append(heading, inputField, updateButton)
-mainContainer.append(updateform)
-
-updateform.addEventListener("submit", (evt) => {
-evt.preventDefault()
-let newName=document.querySelector('input').value
-console.log(newName)
-fetch(`http://localhost:5000/collection_boards/${collection.id}`, {
-method: 'PATCH',
-headers: {
-'Content-Type': 'application/json',
-Accept: 'application/json'
-},
-body: JSON.stringify({
-name: newName,
-id: collection.id,
-item_id: renderItemId(collection)
+            })
 
 
-})
+            updateButton.addEventListener("click", (evt) => {
+                evt.preventDefault()
+                userLists.pop(list)
+                globalListId=list.id
+                mainContainer.innerHTML=""
+                let updateform=document.createElement('form')
 
-})
-.then(resp => resp.json())
-.then(collection => {
-userCollections.push(collection)
-mainCategory(mainObj[0])
-sideLabel.innerText=collection.name
-})
+                updateform.className="form-container"
+                let heading=document.createElement('h3')
+                heading.innerText="Update List Name!"
+                let inputField=document.createElement('input')
+                inputField.placeholder="Update List Name"
+                inputField.type="text"
 
-})
+                let updateButton=document.createElement('BUTTON')           
+                updateButton.className="btn"
+                updateButton.type="submit"
+                updateButton.innerText="Update!"
+                updateform.append(heading, inputField, updateButton)
+                mainContainer.append(updateform)
 
-})
-}
+                updateform.addEventListener("submit", (evt) => {
+                    evt.preventDefault()
+                    let newName=document.querySelector('input').value
+                    console.log(newName)
+                    fetch(`${BASE_URL}/lists/${list.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: newName,
+                            id: list.id,
+                            champion_id: renderChampionId(list)
+
+
+                        })
+
+                    })
+                    .then(resp => resp.json())
+                    .then(list => {
+                        userLists.push(list)
+                        mainChampion(mainObj[0])
+                        sideLabel.innerText=list.name
+                    })
+
+                })
+
+            })
+        }
 
 
       
 
-setTimeout(buttonsDelay,300)
+        setTimeout(buttonsDelay,300)
     })
 
     rightSide.style.display="block"
@@ -214,14 +180,14 @@ setTimeout(buttonsDelay,300)
 }
 
 
-let findItemsInCollectionBoard=(id)=> {
-    fetch(`http://localhost:5000/collection_boards/${id}`)
+let findChampionsInLists=(id)=> {
+    fetch(`${BASE_URL}/lists/${id}`)
     .then(resp=>resp.json())
-    .then((items)=> {
+    .then((Champions)=> {
    
-    giantItemsArray.push(items.items[0])
+    giantChampionsArray.push(champion.champion[0])
   
-    return giantItemsArray
+    return giantChampionsArray
 
     })
   
