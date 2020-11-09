@@ -40,4 +40,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_191745) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "lists", "users"
+  add_foreign_key "champions", "lists"
+
 end
