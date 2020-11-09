@@ -34,7 +34,7 @@ li, ul {
   position: absolute;
    top: 15px;
    right: 210px;
-   width: 80%;
+   width: 200%;
 }
 
 .nav-bar {    
@@ -43,7 +43,7 @@ li, ul {
 
   #main-container {
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(8ch auto);
     grid-auto-rows:minmax(auto, auto);
     margin-top:200px;
     margin-left: 185px;

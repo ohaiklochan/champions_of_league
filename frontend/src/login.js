@@ -61,7 +61,7 @@ let listFormLogin = () => {
             
 
  
-            findChampionsInList(championLists.id)
+            findChampionsInList(champ.id)
      
             let delayed=()=>{
                 for(let i=0; i<giantChampionsArray.length; i++){
@@ -160,7 +160,7 @@ let listFormLogin = () => {
                     .then(resp => resp.json())
                     .then(list => {
                         userLists.push(list)
-                        mainChampion(mainObj[0])
+                        mainChamp(mainObj[0])
                         sideLabel.innerText=list.name
                     })
 
@@ -185,9 +185,9 @@ let listFormLogin = () => {
 let findChampionsInLists=(id)=> {
     fetch(`${BASE_URL}/lists/${id}`)
     .then(resp=>resp.json())
-    .then((Champions)=> {
+    .then((champions)=> {
    
-    giantChampionsArray.push(champion.champion[0])
+    giantChampionsArray.push(champions.champions[0])
   
     return giantChampionsArray
 

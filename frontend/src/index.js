@@ -174,10 +174,10 @@ let displayList = () => {
    .then(resp => resp.json())
    .then(champsArray => {
        
-       //display champions on the main section
-       renderChampList(champsArray[0])
+    //    display champions on the main section
+       mainChamps(champsArray[0])
        mainObj=champsArray
-       champsArray.forEach( (champ)=> {
+       champsArray.forEach((champ)=> {
            renderChampList(champ)
        })
 
@@ -189,22 +189,22 @@ let displayList = () => {
         })
     })
 
-//     let renderChampList = (champ) => {
-//         mainCh=champ
-//         let navButton=document.createElement('li')
-//         navButton.innerText="Log Out"
-//         navBarUl.append(navButton)
-//         navBarSection.append(navBarUl)
-//         globalNav=navButton
-//         navBarSection.append(navBarUl)
-//         navButton.addEventListener("click",(evt) => {
-//             mainChamps(champ)
+    let renderChampList = (champ) => {
+        mainCh=champ
+        let navButton=document.createElement('li')
+        navButton.innerText="Champions"
+        navBarUl.append(navButton)
+        navBarSection.append(navBarUl)
+        globalNav=navButton
+        navBarSection.append(navBarUl)
+        navButton.addEventListener("click",(evt) => {
+            mainChamps(champ)
          
-//         })
-//     }
-// }
+        })
+    }
+}
 
-    let renderChampList = (champs) => {
+    let mainChamps = (champs) => {
   
         mainContainer.innerHTML=""
     
@@ -522,4 +522,4 @@ let logOutUser = (currentUser) => {
              champion.id
         })
     }
-}
+
