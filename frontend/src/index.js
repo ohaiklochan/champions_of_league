@@ -14,7 +14,7 @@ leftCard.className="card-info"
 let rightSide=document.getElementById('side-bar')
 
 let mainObj={}
-let mainCatg={}
+let mainCh={}
 let globalNav=undefined
 let championId={}
 let globalListId={}
@@ -143,7 +143,7 @@ signUpAction()
 console.log(currentUser)
 
 
-function startMainPage(){
+function startMainPage() {
     mainContainer.innerHTML=""
    
     if (!userLists.length===0) {
@@ -175,10 +175,10 @@ let displayList = () => {
    .then(champsArray => {
        
        //display champions on the main section
-       mainChamps(champsArray[0])
+       renderChampList(champsArray[0])
        mainObj=champsArray
-       champsArray.forEach((cat)=> {
-           renderChampList(cat)
+       champsArray.forEach( (champ)=> {
+           renderChampList(champ)
        })
 
        let logOut=document.createElement('li')
@@ -189,28 +189,28 @@ let displayList = () => {
         })
     })
 
-    let renderChampsList= (champ) => {
-        mainChamp=champ
-        let navButton=document.createElement('li')
-        navButton.innerText=champ.name
-        navBarUl.append(navButton)
-        navBarSection.append(navBarUl)
-        globalNav=navButton
-        navBarSection.append(navBarUl)
-        navButton.addEventListener("click",(evt) => {
-            mainChamps(champ)
+//     let renderChampList = (champ) => {
+//         mainCh=champ
+//         let navButton=document.createElement('li')
+//         navButton.innerText="Log Out"
+//         navBarUl.append(navButton)
+//         navBarSection.append(navBarUl)
+//         globalNav=navButton
+//         navBarSection.append(navBarUl)
+//         navButton.addEventListener("click",(evt) => {
+//             mainChamps(champ)
          
-        })
-    }
-}
+//         })
+//     }
+// }
 
-    let mainChamps = (champs) => {
+    let renderChampList = (champs) => {
   
         mainContainer.innerHTML=""
     
         title=document.createElement("h2")
-        champs.champions.forEach(champion => {
-            championId=champion.id
+        champs.Champions.forEach(champion => {
+            championId=Champion.id
             mainContainer.HTML=""
             let cardDiv=document.createElement('div')
             cardDiv.className="card"
@@ -218,11 +218,11 @@ let displayList = () => {
             descrip=document.createElement('p')
             image=document.createElement('img')
             image.className="image-top"
-            image.src=champion.image
+            image.src=Champion.image
             image.width=120
             image.height=120
-            title.innerText=champion.name
-            descrip.innerText=champion.description
+            title.innerText=Champion.name
+            descrip.innerText=Champion.description
             cardDiv.append(image)
             mainContainer.append(cardDiv)
             cardDiv.append(title)
@@ -266,7 +266,7 @@ let displayList = () => {
         form.className="form-container"
 
         let heading=document.createElement('h3')
-        heading.innerText="Choose A Collection"
+        heading.innerText="Choose A List"
         let submitButton=document.createElement('BUTTON')           
         submitButton.className="btn"
         submitButton.type="submit"
@@ -408,13 +408,13 @@ let displayList = () => {
                     button.append(sideLabel)
                     rightSide.append(button)
 
-                    item.list_board_id=list.id
+                    champion.list_id=list.id
 
-                    list.items.forEach(item => {
+                    list.champions.forEach(champion => {
                         let champName=document.createElement('h5')
                         champName.className="champ-name"
     
-                        champName.innerText=item.name
+                        champName.innerText=champion.name
                         button.append(champName)
                         rightSide.append(button)
 
@@ -492,7 +492,7 @@ let displayList = () => {
                                 .then(resp => resp.json())
                                 .then(list => {
                                     userList.push(list)
-                                    mainCategory(mainObj[0])
+                                    mainChamp(mainObj[0])
                                     sideLabel.innerText=list.name
                                 })
     
@@ -517,9 +517,9 @@ let logOutUser = (currentUser) => {
       
 }
 
-     let renderChampionId = (collection) => {
-         collection.champions.forEach (champion => {
+     let renderChampionId = (list) => {
+         list.champions.forEach (champion => {
              champion.id
         })
     }
-
+}
