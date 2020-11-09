@@ -1,5 +1,7 @@
 // const BASE_URL = "http://127.0.0.1:3000/"
 let navContainer=document.getElementById('top-container')
+let navBarSection=document.getElementById('nav-bar')
+let navBarUl=document.getElementById('nav-ul')
 let mainContainer=document.getElementById('main-container')
 
 let body=document.querySelector('body')
@@ -93,6 +95,7 @@ let signUpAction = () => {
         e.preventDefault()
         body.className="main"
         let name=e.target.name.value
+        let email=e.target.email.value
         let username=e.target.username.value
         fetch(`${BASE_URL}/users`, {
             method: 'POST',
@@ -122,12 +125,12 @@ let signUpAction = () => {
         evt.preventDefault()
         console.log("click")
     
-        let username=evt.target.username.value
-        fetch(`${BASE_URL}/users/${currentUser}`)
+        let userName=evt.target.username.value
+        fetch(`${BASE_URL}/login/${userName}`)
         .then(resp => resp.json())
         .then(foundUser => {
             currentUser = foundUser
-            if (foundUser.username===username) {
+            if (foundUser.username===userName) {
                 console.log(foundUser) 
                 console.log(currentUser)
                 listFormLogin()
@@ -172,7 +175,7 @@ let displayList = () => {
    .then(championArray => {
        
        //display champions on the main section
-       mainChampion(championArray[0])
+       mainChamp(championArray[0])
        mainObj=championArray
        championArray.forEach((cat)=> {
            renderChampionList(cat)
@@ -180,17 +183,33 @@ let displayList = () => {
 
        let logOut=document.createElement('li')
        logOut.innerText="Logout"
+       navBarUl.append(logOut)
         logOut.addEventListener(("click"), (evt) => {
             logOutUser(currentUser)
         })
     })
 
-    let mainChampion = (champion) => {
+    let renderChampList= (champ) => {
+        mainchamp=champ
+        let navButton=document.createElement('li')
+        navButton.innerText=champ.name
+        navBarUl.append(navButton)
+        navBarSection.append(navBarUl)
+        globalNav=navButton
+        navBarSection.append(navBarUl)
+        navButton.addEventListener("click",(evt) => {
+         mainChamp(champ)
+         
+         })
+     }
+    }
+
+    let mainChamp = (champ) => {
   
         mainContainer.innerHTML=""
     
         title=document.createElement("h2")
-        champion.forEach(champion => {
+        champ.champions.forEach(champion => {
             championId=champion.id
             mainContainer.HTML=""
             let cardDiv=document.createElement('div')
@@ -503,4 +522,4 @@ let logOutUser = (currentUser) => {
              champion.id
         })
     }
-}
+

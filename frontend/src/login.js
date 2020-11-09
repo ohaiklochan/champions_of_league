@@ -8,52 +8,52 @@ let listFormLogin = () => {
     .then(userArray => {
         console.log(userArray)
 
-        let lists=[]
+        let championLists=[]
         userArray.forEach((user) => {
             if(user.id===currentUser.id) {
-                lists.push(user.list)
+                championLists.push(user.lists)
                 currentUser.id=user.id
           
       
           }             
       })
 
-      userLists.push(lists)
+      userLists.push(championLists)
 
-      console.log(lists)
+      console.log(championLists)
       console.log(userLists)
-      lists[0].forEach((userList)=> {
+      championLists[0].forEach((champList) => {
      
-       console.log(userList)
+       console.log(champList)
     
         let sideCard=document.createElement('div')
             sideCard.id="side-bar"
             sideCard.className="container"
-            let button=document.createElement('div')
-            button.className="button"
+            let buttonX=document.createElement('div')
+            buttonX.className="buttonX"
        
-            rightSide.append(button)
+            rightSide.append(buttonX)
             let sideLabel=document.createElement('h2')
-            sideLabel.className="champ-name"
+            sideLabel.className="champList-name"
             
             sideLabel.innerText=list.name
-            button.append(sideLabel)
-            rightSide.append(button)
+            buttonX.append(sideLabel)
+            rightSide.append(buttonX)
 
             let deleteButton=document.createElement('BUTTON')
             deleteButton.type="submit"
             deleteButton.innerText="Remove"
             deleteButton.className="deleteButton"
-            button.append(deleteButton)
-            rightSide.append(button)
+            buttonX.append(deleteButton)
+            rightSide.append(buttonX)
 
 
             let updateButton=document.createElement("BUTTON")
             updateButton.type="submit"
             updateButton.className="submitButton"
             updateButton.innerHTML="Update Name"
-            button.append(updateButton)
-            rightSide.append(button)
+            buttonX.append(updateButton)
+            rightSide.append(buttonX)
             let getCard=document.getElementsByClassName('card')
             mainContainer.id="main-container-2"
             rightSide.style.display="block"
@@ -61,18 +61,18 @@ let listFormLogin = () => {
             
 
  
-            findChampionsInList(userList.id)
+            findChampionsInList(championLists.id)
      
             let delayed=()=>{
                 for(let i=0; i<giantChampionsArray.length; i++){
-                    if(giantChampionsArray[i]["list"]["id"]===userList.id){
+                    if(giantChampionsArray[i]["list"]["id"]===championLists.id){
                             
                         let champName=document.createElement('h5')
                         champName.className="champ-name"
                         champName.innerHTML=giantChampionsArray[i]["name"]
-                        button.append(champName)
+                        buttonX.append(champName)
                         console.log("hello")
-                        rightSide.append(button)
+                        rightSide.append(buttonX)
                     }
                
                 } 
@@ -86,21 +86,23 @@ let listFormLogin = () => {
         console.log(giantChampionsArray)
 
         let buttonsDelay = () => {
-
+            
+            let buttonX=document.createElement('div')
+            buttonX.className="buttonX"
             let deleteButton=document.createElement('BUTTON')
             deleteButton.type="submit"
             deleteButton.innerText="Remove"
             deleteButton.className="deleteButton"
-            button.append(deleteButton)
-            rightSide.append(button)
+            buttonX.append(deleteButton)
+            rightSide.append(buttonX)
 
 
             let updateButton=document.createElement("BUTTON")
             updateButton.type="submit"
             updateButton.className="submitButton"
             updateButton.innerHTML="Update Name"
-            button.append(updateButton)
-            rightSide.append(button)
+            buttonX.append(updateButton)
+            rightSide.append(buttonX)
             let getCard=document.getElementsByClassName('card')
             mainContainer.id="main-container-2"
             rightSide.style.display="block"
@@ -109,7 +111,7 @@ let listFormLogin = () => {
                 fetch(`${BASE_URL}/lists/${list.id}`, {
                     method: 'DELETE'
                 })
-                button.remove()
+                buttonX.remove()
                 userLists.pop(list)
 
             })

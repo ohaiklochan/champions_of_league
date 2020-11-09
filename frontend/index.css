@@ -30,6 +30,17 @@ li, ul {
   font-weight: bold;
 }
 
+#top-container {
+  position: absolute;
+   top: 50px;
+   right: 210px;
+   width: 80%;
+}
+
+.nav-bar {    
+  margin-top: 30px;
+}
+
   #main-container {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
@@ -271,7 +282,7 @@ li, ul {
      }
      
     
-  .button {
+  .buttonX {
     position:relative;
     border: #550086;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -279,7 +290,7 @@ li, ul {
     border-radius: 5px;
     padding:10px;
     margin:30px;
-    background: black;
+    background: rgb(0, 0, 0);
   }
 
   h5{
@@ -314,7 +325,7 @@ li, ul {
   
 
   .deleteButton{
-    background:rgb(0, 0, 0);
+    background:rgb(75, 75, 75);
     position:absolute;
     bottom: 0;
     right: 0;
@@ -323,7 +334,7 @@ li, ul {
   }
 
   .submitButton{
-    background:rgb(0, 0, 0);
+    background:rgb(109, 109, 109);
     position:absolute;
     margin-top:15px;    
     bottom: 0;
@@ -333,7 +344,7 @@ li, ul {
   }
 
   button.btn {
-    background:rgb(0, 0, 0);
+    background:rgb(78, 78, 78);
     margin-top:30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     position: relative;
