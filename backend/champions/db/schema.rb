@@ -16,9 +16,12 @@ ActiveRecord::Schema.define(version: 2020_11_08_191745) do
     t.string "name"
     t.string "image"
     t.string "description"
-    t.integer "champion_id"
+    t.integer "user_id"
+    t.integer "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id"], name: "index_champions_on_list_id"
+    t.index ["user_id"], name: "index_champions_on_user_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -26,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_191745) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
