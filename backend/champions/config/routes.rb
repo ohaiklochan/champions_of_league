@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+
   resources :users, only: [:index, :show, :create]
-  resources :categories, only: [:index, :show]
+  resources :champs, only: [:index, :show]
 
   get '/champions/:id', to: 'champions#show'
   get '/champions', to: 'champions#index'

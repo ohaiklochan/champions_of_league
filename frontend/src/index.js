@@ -172,13 +172,13 @@ function startMainPage(){
 let displayList = () => {
     fetch(`${BASE_URL}/champions`)
    .then(resp => resp.json())
-   .then(championArray => {
+   .then(champsArray => {
        
        //display champions on the main section
-       mainChamp(championArray[0])
-       mainObj=championArray
-       championArray.forEach((cat)=> {
-           renderChampionList(cat)
+       mainChamps(champsArray[0])
+       mainObj=champsArray
+       champsArray.forEach((cat)=> {
+           renderChampList(cat)
        })
 
        let logOut=document.createElement('li')
@@ -189,8 +189,8 @@ let displayList = () => {
         })
     })
 
-    let renderChampList= (champ) => {
-        mainchamp=champ
+    let renderChampsList= (champ) => {
+        mainChamp=champ
         let navButton=document.createElement('li')
         navButton.innerText=champ.name
         navBarUl.append(navButton)
@@ -198,18 +198,18 @@ let displayList = () => {
         globalNav=navButton
         navBarSection.append(navBarUl)
         navButton.addEventListener("click",(evt) => {
-         mainChamp(champ)
+            mainChamps(champ)
          
-         })
-     }
+        })
     }
+}
 
-    let mainChamp = (champ) => {
+    let mainChamps = (champs) => {
   
         mainContainer.innerHTML=""
     
         title=document.createElement("h2")
-        champ.champions.forEach(champion => {
+        champs.champions.forEach(champion => {
             championId=champion.id
             mainContainer.HTML=""
             let cardDiv=document.createElement('div')

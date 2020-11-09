@@ -81,7 +81,7 @@ li, ul {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows:minmax(auto, auto);
-    margin-top:center;
+    margin-top:350px;
     margin-left: center;
     float:center;
     background: rgb(0, 0, 0);
