@@ -78,8 +78,8 @@ li, ul {
     border-style:solid;
     border-color: #004770;
     border-radius: 5px;
-    width: 40%;
-    height: 190px;
+    width: 65%;
+    height: 300px;
     position:relative;
   }
 
@@ -168,9 +168,9 @@ li, ul {
     left: 250px;
   }
   
-  .form-container {
+  /* .form-container {
 
-  }
+  } */
 
   #createName {
     position: absolute;
@@ -291,7 +291,7 @@ li, ul {
     margin-left:30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
-    color: #rgb(0, 0, 0)
+    color: rgb(0, 0, 0)
   }
 
   h2.champ-name {

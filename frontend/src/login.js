@@ -497,5 +497,6 @@ let logOutUser = (currentUser) => {
      let renderChampionId = (collection) => {
          collection.champions.forEach (champion => {
              champion.id
-         })
-     }
+        })
+    }
+}
