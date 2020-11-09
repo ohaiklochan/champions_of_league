@@ -1,114 +1,84 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     createForm();
-//     fetchUsers();
-//     Champion.showChampion()
-// })
+class User {
+    constructor(id, name, email, username) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+    }
 
-// // fetch requests:
-// // read - fetch users index
-// const BASE_URL = "http://127.0.0.1:3000/"
+    renderUser() {
+        let usersDiv = document.getElementById("users-container")
 
-// function fetchUsers() {
-//     fetch(`${BASE_URL}/users`)
-//     .then(resp => resp.json())
-//     .then(users => {
-//         for (const user of users) {
-//             let u = new User(user.id, user.name, user.email, user.username)
-//             u.renderUser();
-//         }
-//     } )
-// }
+        usersDiv.innerHTML +=
+        `
+        <center>
+        <ul>
+        <h3> Username: ${this.username}</h3>
+        <li> Name: ${this.name} - Email: ${this.email} </li>
+        </ul>
+        <button class="delete-bttn" data-id=${this.id} onclick="logOut()">Log Out</button>
+        <center>
+        `
+    }
+    userLogIn() {
+        let userLogIn = document.getElementById("log-in")
 
-// function logOut() {
-//     fetch(`${BASE_URL}/users/${userId}`, {
-//         method: 'DELETE'
-//     })
+        userLogIn.innerHTML +=
+        `
+        <center>
+        <h1>Champions of</h1> <img src="img/backgrounds/lol-logo-rendered-hi-res.png" width="300" height="150">
+        <h3>Your resident 'liker'!</h3>
+        <h4>Click on your favorite champions to 'like' them to get them added to your account!</h4>
+        </center>
+        `
+    }
 
-//     window.location.reload()
+    createForm() {
+        let usersForm = document.getElementById("users-form")
 
-// }
+        usersForm.innerHTML +=
+        `
+        <center>
+        <form>
+        Name: <input type="text" id="name">
+        Email: <input type="text" id="email">
+        Username: <input type="text" id="username">
+        <input type="submit" value="Sign up!">
+        </form>
+        </center>
+        `
 
-// class User {
-//     constructor(id, name, email, username) {
-//         this.id = id;
-//         this.name = name;
-//         this.email = email;
-//         this.username = username;
-//     }
+        usersForm.addEventListener("submit", signUp)
+    }
 
-//     renderUser() {
-//         let usersDiv = document.getElementById("users-container")
+    signUp() {
+        event.preventDefault();
+        let name = document.getElementById("name").value
+        let email = document.getElementById("email").value
+        let username = document.getElementById("username").value
 
-//         usersDiv.innerHTML +=
-//         `
-//         <center>
-//         <ul>
-//         <h3> Username: ${this.username}</h3>
-//         <li> Name: ${this.name} - Email: ${this.email} </li>
-//         </ul>
-//         <button class="delete-bttn" data-id=${this.id} onclick="logOut()">Log Out</button>
-//         <center>
-//         `
-//     }
-//     userLogIn() {
-//         let userLogIn = document.getElementById("log-in")
+        let user = {
+            name: name,
+            email: email,
+            username: username
+        }
 
-//         userLogIn.innerHTML +=
-//         `
-//         <center>
-//         <h1>Champions of</h1> <img src="img/backgrounds/lol-logo-rendered-hi-res.png" width="300" height="150">
-//         <h3>Your resident 'liker'!</h3>
-//         <h4>Click on your favorite champions to 'like' them to get them added to your account!</h4>
-//         </center>
-//         `
-//     }
+        fetch(`${BASE_URL}/users`, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
 
-//     createForm() {
-//         let usersForm = document.getElementById("users-form")
-
-//         usersForm.innerHTML +=
-//         `
-//         <center>
-//         <form>
-//         Name: <input type="text" id="name">
-//         Email: <input type="text" id="email">
-//         Username: <input type="text" id="username">
-//         <input type="submit" value="Sign up!">
-//         </form>
-//         </center>
-//         `
-
-//         usersForm.addEventListener("submit", signUp)
-//     }
-
-//     signUp() {
-//         event.preventDefault();
-//         let name = document.getElementById("name").value
-//         let email = document.getElementById("email").value
-//         let username = document.getElementById("username").value
-
-//         let user = {
-//             name: name,
-//             email: email,
-//             username: username
-//         }
-
-//         fetch(`${BASE_URL}/users`, {
-//             method: "POST",
-//             headers: {
-//                 'Accept': 'application/json',
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(user)
-//         })
-
-//         .then(resp => resp.json())
-//         .then(response => {
-//             currentUser = response  
-//             if (response.id) {
-//                 mainContainer.id="main-container"
-//                 startMainPage()
-//         }
-//     })
-// }
-// }    // instance method goes here
+        .then(resp => resp.json())
+        .then(response => {
+            currentUser = response  
+            if (response.id) {
+                mainContainer.id="main-container"
+                startMainPage()
+        }
+    })
+}
+}    // instance method goes here
