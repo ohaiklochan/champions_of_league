@@ -1,4 +1,4 @@
-function enter(){
+function enterPage(){
     return (
         `
         <section id="music">
@@ -11,4 +11,4 @@ function enter(){
         )
 }
 
-export {enter}
+export {enterPage}
