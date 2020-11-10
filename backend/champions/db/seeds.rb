@@ -21,7 +21,7 @@ require 'rest-client'
 #     )
 # end
 
-Champion.create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png")
+Champion.create(name: "Aatrox", image: "img/champions/AatroxSquare.png", title: "The Darkin Blade")
 Champion.create(name: "Ahri", title: "The Darkin Blade", image: "img/champions/AhriSquare.png")
 Champion.create(name: "Akali", title: "The Darkin Blade", image: "img/champions/AkaliSquare.png")
 Champion.create(name: "Alistar", title: "The Darkin Blade", image: "img/champions/AlistarSquare.png")

@@ -20,7 +20,10 @@ function router(event){
 
 function pageReset(){
     const championCardContainer = document.querySelector('#card-container')
-    championCardContainer.innerHTML = `<div id="card-container"></div>`
+    championCardContainer.innerHTML = 
+    `
+    <div id="card-container"></div>
+    `
 
     championForm.style.display = 'none'
 
