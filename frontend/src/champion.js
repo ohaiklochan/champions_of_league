@@ -28,13 +28,45 @@ return (
 }
 
 const championCardContainer = document.querySelector('#card-container')
-const championsUrl = `champions`
+const championsUrl = `${BASE_URL}/champions`
 
 function renderChampions(){
     fetch(championsUrl)
         .then(response => response.json())
         .then(champions => 
           champions.forEach(champion => createChampionCards(champion)))
+}
+
+function createChampionCards(champion){
+  // champions.forEach(champion => {
+      const card = document.createElement('card')
+      const name = document.createElement('h2')
+      const picture = document.createElement('img')
+      const title = document.createElement('h3')
+      const deleteButton = document.createElement('button')
+  
+      card.className = 'champion-cards'
+      card.id = champion.id
+      picture.className = 'pictures'
+      name.innerText = champion.name
+      picture.src = champion.image
+      title.innerText = `Title: ${champion.title}`
+      deleteButton.innerText = "X"
+      deleteButton.id = 'delete-button'
+
+      deleteButton.addEventListener('click', (event) => deleteChampion(event, champion.id))
+
+      card.append(deleteButton, name,  picture, title)
+      championCardContainer.appendChild(card)
+  }
+// }
+
+function deleteChampion(event, id){
+  event.target.parentNode.remove()
+
+  fetch(`${BASE_URL}/champions/${id}`, {
+      method: 'DELETE'
+  })
 }
 
 function championFormData(form) {
@@ -47,7 +79,7 @@ function championFormData(form) {
       title: championTitle,
       image: championImage
   }
-  createchampionCards(body)
+  createChampionCards(body)
   fetch(championsUrl, {
       method: 'POST', 
       headers: { 
@@ -59,40 +91,6 @@ function championFormData(form) {
 
   alert("Champion has been added!")
   form.reset()
-}
-
-function createChampionCards(champion){
-  // champions.forEach(champion => {
-      const card = document.createElement('card')
-      const name = document.createElement('h2')
-      const picture = document.createElement('img')
-      const house = document.createElement('h3')
-      const ancestry = document.createElement('h3')
-      const deleteButton = document.createElement('button')
-  
-      card.className = 'champion-cards'
-      card.id = champion.id
-      picture.className = 'pictures'
-      name.innerText = champion.name
-      picture.src = champion.image
-      ancestry.innerText = `Ancestry: ${champion.ancestry}`
-      house.innerText = `House: ${champion.house}`
-      deleteButton.innerText = "X"
-      deleteButton.id = 'delete-button'
-
-      deleteButton.addEventListener('click', (event) => deleteChampion(event, champion.id))
-
-      card.append(deleteButton, name,  picture, house, ancestry)
-      championCardContainer.appendChild(card)
-  }
-// }
-
-function deleteChampion(event, id){
-  event.target.parentNode.remove()
-
-  fetch(`${BASE_URL}/champions/${id}`, {
-      method: 'DELETE'
-  })
 }
 
 export {championsPage, championForm}
