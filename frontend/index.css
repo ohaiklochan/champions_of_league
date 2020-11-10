@@ -1,100 +1,153 @@
-body {
-  background: url("img/backgrounds/LolBackground.jpg"); 
-  background-attachment: fixed;
-  background-repeat: no-repeat; 
-  background-size: cover;
-}
 
-h1, h2, h3, h4 {
-  text-shadow: 2px 2px 5px rgb(1, 175, 255);
-  color:#000000;
+body{
+  background-image: url('img/backgrounds/LolBackground.jpg');
+
   font-family: Georgia, 'Times New Roman', Times, serif;
-  float:center;
-  align-items: center; 
-}
-
-li, ul {
   text-shadow: .5px .5px 2px rgb(255, 255, 252);
+}
+#body{
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #000000;
-  font-weight: bold;
+  text-shadow: .5px .5px 2px rgb(255, 255, 252);
+  align-items: center;
+  align-content: center;
 }
 
-p {
-  color: #000000;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+ul {
+  text-shadow: .5px .5px 2px rgb(255, 255, 252);
+  height: 40px;
+  width: 100%;
+  margin: auto;
+  text-align: right;
+  align-items: center;
+}
+ul li a {
+  text-align: right;
+  color: rgb(0, 0, 0);
+  float: none;
+}
+li{
+  display: inline;
+  align-items: center;
 }
 
-/* Style the content */
-.main-content {
-  margin-left: 200px;
-  padding-left: 0px;
+li a:hover {
+  color: rgb(97, 32, 218);
+  text-decoration: none;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
-
-.column {
-    flex: 50%;
-    padding: 0 4px;
-}
-          
-.column img {
-    margin-top: 8px;
-    vertical-align: middle;
-}
-
-.image-list-small {
-  font-family: Palatino, serif;
-  margin: 0 auto;
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 25px;
   text-align: center;
-  max-width: 3000px;
-  padding: 0;
 }
 
-.image-list-small li {
-  display: inline-block;
+#page-name {
+  color: rgb(255, 255, 255);
+  opacity: .8;
+  padding: 5px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0px;
+}
+
+.champion-cards {
+  justify-content: space-evenly;
+  align-content: space-between;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  margin: 15px;
+  width: 300px;
+  text-align: center;
+  height: auto;
+  padding: 1px;
+}
+.pictures {
   width: 120px;
-  margin: 0 12px 30px;
-}
-
-/* Photo */
-.image-list-small li > a {
-  display: block;
-  text-decoration: none;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 120px;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+}
+#card-container {
+  justify-content: center;
+  display: grid;  
+  grid-template-columns: auto;
+  grid-gap: 3px;
+  
 }
 
-.image-list-small .details {
-  margin-top: 2px;
+.page{
+  display: grid;  
+  grid-template-columns: auto;
+  grid-gap: 3px;
 }
 
-/* Details */
-.image-list-small .details h3 {
-  display: block;
-  font-size: 12px;
-  margin: 0 0 3px 0;
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+#name-of-page{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin: auto;
+  width: 20%;
+}
+#enter{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin: auto;
+  width: 40%;
+}
+#music {
+  text-align: center;
+}
+iframe {
+  margin-top: 30px;
+}
+form{
+  height: 50px;
+  text-align: center;
+  align-items: center;
+  margin: 40px;
 }
 
-.image-list-small .details h3 a {
-  color: #000000;
-  text-decoration: none;
+input{
+  width: 150px;
+  background-color: rgb(0, 0, 0);
+  opacity: .8;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(82, 27, 211);
+  box-shadow: 0 2px 4px rgb(82, 27, 211), 0 6px 20px rgb(82, 27, 211);
 }
-
-.image-list-small .details .tagline {
-  display: block;
-  color: #312f2f;
-  font-size: 10px;
-  font-weight: normal;
-  margin: 0;
+select{
+  background-color:rgb(0, 0, 0);
+  opacity: .8;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(82, 27, 211);
+  box-shadow: 0 2px 4px rgb(82, 27, 211), 0 6px 20px rgb(82, 27, 211);
+}
+label {
+  color:rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 15px;
+  background-color: rgb(255, 255, 255);
+  opacity: .8;
+}
+#submit{
+  color:rgb(255,255,255);
+  background: rgb(82, 27, 211);
+  opacity: .8;
+  margin-left: 10px;;
+}
+#delete-button{
+  background-color: black;
+  opacity: .8;
+  color:rgb(82, 27, 211);
+  display: flex;
+  float: right;
 }
