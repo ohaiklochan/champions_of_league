@@ -1,3 +1,9 @@
+class Champion {
+  this.name = name;
+  this.title = title;
+  this.image = image;
+}
+
 const BASE_URL = "http://127.0.0.1:8887/"
 const championForm = document.getElementById('champion-form')
 
@@ -22,7 +28,7 @@ championForm.addEventListener('submit', (event) => {
 renderChampions()
 return (
   `
-  <h1 id="name-of-page">All Champions</h1>
+  <h3 id="name-of-page">All Champions</h3>
   `
   )
 }
