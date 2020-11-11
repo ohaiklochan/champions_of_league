@@ -5,23 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'rest-client'
+require 'httparty'
 
-# Champion.destroy_all
+Champion.destroy_all
 
-# lol_champions = RestClient.get "http://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json"
+def self.get_data
+    lol_champions = HTTParty.get "https://raw.githubusercontent.com/ngryman/lol-champions/master/champions.json"
 
-# lol_champions_array = JSON.parse(lol_champions)["results"]
+    lol_champions_array = JSON.parse(lol_champions)
+    lol_champions_array.each do |champion_details|
+        name = champion_details["name"]
+        title = champion_details["title"]
+        image = champion_details["icon"]
 
-# lol_champions_array.each do |champion|
-#     Champion.create(
-#         name: champion["name"],
-#         title: champion["title"],
-#         image: champion["image"]
-#     )
+        Champion.new(name: name, title: title, image: image)
+    end
+end
+
+# lol_champions_array = [
+#     { name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png" },
+#     { name: "Ahri", title: "The Nine-Tailed Fox", image: "img/champions/AhriSquare.png" }
+# ]
+
+# lol_champions_array.each do |champions|
+#     Champion.where(champions).first_or_create
 # end
-
-Champion.before_validation validation_method, on: :create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png")
+# Champion.create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png")
 # Champion.create(name: "Ahri", title: "The Darkin Blade", image: "img/champions/AhriSquare.png")
 # Champion.create(name: "Akali", title: "The Darkin Blade", image: "img/champions/AkaliSquare.png")
 # Champion.create(name: "Alistar", title: "The Darkin Blade", image: "img/champions/AlistarSquare.png")

@@ -15,13 +15,12 @@ class ChampionsController < ApplicationController
 
   # POST /champions
   def create
-    @champion = Champion.new(champion_params)
-
-    if @champion.save
-      render json: @champion, status: :created, location: @champion
-    else
-      render json: @champion.errors, status: :unprocessable_entity
-    end
+    @champion = Champion.create(
+      name: params[:name],
+      title: params[:title],
+      image: params[:image]
+    )
+    render json: @champion
   end
 
   # PATCH/PUT /champions/1

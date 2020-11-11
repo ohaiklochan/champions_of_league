@@ -1,7 +1,9 @@
 class Champion {
-  this.name = name;
-  this.title = title;
-  this.image = image;
+  constructor(name, title, image) {
+    this.name = name;
+    this.title = title;
+    this.image = image;
+  }
 }
 
 const BASE_URL = "http://127.0.0.1:8887/"
