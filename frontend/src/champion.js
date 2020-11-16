@@ -36,10 +36,10 @@ return (
 }
 
 const championCardContainer = document.querySelector('#card-container')
-const championsUrl = `${BASE_URL}/champions`
+
 
 function renderChampions(){
-    fetch(championsUrl)
+    fetch(`${BASE_URL}/champions`)
         .then(response => response.json())
         .then(champions => 
           champions.forEach(champion => createChampionCards(champion)))
@@ -88,13 +88,18 @@ function championFormData(form) {
       image: championImage
   }
   createChampionCards(body)
-  fetch(championsUrl, {
+  fetch(`${BASE_URL}/champions`, {
       method: 'POST', 
       headers: { 
         'Content-Type': 'application/json', 
         'Accept': 'application/json' },
 
       body: JSON.stringify(body)
+  })
+  .then(resp => resp.json())
+  .then(champion => {
+    let c = new Champion(champion.id, champion.name, champion.title, champion.image)
+    c.renderChampions();
   })
 
   alert("Champion has been added!")
