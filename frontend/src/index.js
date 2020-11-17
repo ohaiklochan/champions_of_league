@@ -2,11 +2,13 @@ const BASE_URL = "http://127.0.0.1:8887/"
 
 import {enterPage} from './enter.js'
 import {championsPage, championForm} from './champion.js'
+import {abilitiesPage} from './ability.js'
 
 const pageName = document.querySelector('#page')
 const routes = {
     '/': enterPage,
-    '/champions': championsPage
+    '/champions': championsPage,
+    '/abilities': abilitiesPage
 }
 
 function router(event){

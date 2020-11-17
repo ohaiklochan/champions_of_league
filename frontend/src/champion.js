@@ -9,7 +9,7 @@ class Champion {
 const BASE_URL = "http://127.0.0.1:8887/"
 const championForm = document.getElementById('champion-form')
 
-function championsPage(){
+function championsPage() {
     championForm.style.display = 'block'
     championForm.innerHTML = `
             <form id="champion-form">
@@ -38,14 +38,14 @@ return (
 const championCardContainer = document.querySelector('#card-container')
 
 
-function renderChampions(){
+function renderChampions() {
     fetch(`${BASE_URL}/champions`)
         .then(response => response.json())
         .then(champions => 
           champions.forEach(champion => createChampionCards(champion)))
 }
 
-function createChampionCards(champion){
+function createChampionCards(champion) {
   // champions.forEach(champion => {
       const card = document.createElement('card')
       const name = document.createElement('h2')
@@ -58,13 +58,13 @@ function createChampionCards(champion){
       picture.className = 'pictures'
       name.innerText = champion.name
       picture.src = champion.image
-      title.innerText = `Title: ${champion.title}`
+      title.innerText = `${champion.title}`
       deleteButton.innerText = "X"
       deleteButton.id = 'delete-button'
 
       deleteButton.addEventListener('click', (event) => deleteChampion(event, champion.id))
 
-      card.append(deleteButton, name,  picture, title)
+      card.append(deleteButton, name, picture, title)
       championCardContainer.appendChild(card)
   }
 // }
