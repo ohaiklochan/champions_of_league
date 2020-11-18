@@ -102,6 +102,14 @@ a {
   margin: auto;
   width: 40%;
 }
+
+#users-container {
+  justify-content: center;
+  display: grid;  
+  grid-template-columns: auto;
+  grid-gap: 3px;
+  
+}
 #music {
   text-align: center;
 }

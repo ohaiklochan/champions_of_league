@@ -92,7 +92,7 @@ function createChampionCards(champion) {
 function deleteChampion(event, id){
   event.target.parentNode.remove()
 
-  fetch(`${BASE_URL}/champions/${champion.id}`, {
+  fetch(`${BASE_URL}/champions/${id}`, {
       method: 'DELETE'
   })
 }

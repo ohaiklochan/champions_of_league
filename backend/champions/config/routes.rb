@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :types
   resources :users, only: [:create]
   post "login", to: "authentication#login"
   resources :champions

@@ -8,7 +8,7 @@ class User {
 
 
     renderUser() {
-        let usersDiv = document.getElementById("users-container")
+        let usersDiv = document.getElementById('users-container')
 
         usersDiv.innerHTML +=
         `
@@ -21,33 +21,39 @@ class User {
         `
     }
 }
+const BASE_URL = "http://127.0.0.1:3000"
+const userForm = document.getElementById('user-form')
 
-
-function createForm() {
-    let usersForm = document.getElementById("users-form")
-
-    usersForm.innerHTML +=
+function userPage() {
+    userForm.style.display = 'block'
+    userForm.innerHTML =
     `
-    <center>
-    <form>
-    Name: <input type="text" id="name">
-    Email: <input type="text" id="email">
-    Username: <input type="text" id="username">
-    <input type="submit" value="Sign up!">
+    <form id="user-form">
+    <label>Name:</label> <input type="text" id="name">
+    <label>Email:</label> <input type="text" id="email">
+    <label>Username:</label> <input type="text" id="username">
+    <input type="submit" value="Log in">
     </form>
-    </center>
     `
 
-    usersForm.addEventListener("submit")
+    userForm.addEventListener("submit", (event) => {
+        event.preventDefault()
+        userFormSubmission(userForm)
+    })
+    return (
+        `
+        <h3 id="name-of-page">Your Information</h3>
+        `
+    )
 }
 
-function userFormSubmission() {
-    event.preventDefault();
-    let name = document.getElementById("name").value
-    let email = document.getElementById("email").value
-    let username = document.getElementById("username").value
+function userFormSubmission(form) {
+    const formSubmission = new FormSubmission(form)
+    const name = formSubmission.get("name")
+    const email = formSubmission.get("email")
+    const username = formSubmission.get("username")
 
-    let user = {
+    const body = {
         name: name,
         email: email,
         username: username
@@ -69,4 +75,4 @@ function userFormSubmission() {
     })
 }
 
-export {userPage}
+export {userPage, userForm}
