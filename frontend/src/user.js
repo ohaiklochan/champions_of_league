@@ -5,6 +5,18 @@ class User {
         this.email = email;
         this.username = username;
     }
+    renderUser() {
+        let usersDiv = document.getElementById('users-container')
+
+        usersDiv.innerHTML =
+        `
+        <center>
+        <ul>
+        <li>Username: ${this.username} x Name: ${this.name} x Email: ${this.email}</li>
+        </ul>
+        <center>
+        `
+    }
 }
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -33,12 +45,24 @@ function userPage() {
     )
 }
 
+function createUser(user) {
+    let usersDiv = document.getElementById('users-container')
+
+        usersDiv.innerHTML =
+        `
+        <center>
+        <ul>
+        <li>Username: ${user.username} x Name: ${user.name} x Email: ${user.email}</li>
+        </ul>
+        <center>
+        `
+}
 
 function userFormSubmission(form) {
-    const formSubmission = new FormSubmission(form)
-    const name = formSubmission.get("name")
-    const email = formSubmission.get("email")
-    const username = formSubmission.get("username")
+    const formData = new FormData(form)
+    const name = formData.get("name")
+    const email = formData.get("email")
+    const username = formData.get("username")
 
     const user = {
         name: name,
@@ -46,6 +70,7 @@ function userFormSubmission(form) {
         username: username
     }
 
+    createUser(body)
     fetch(`${BASE_URL}/users`, {
         method: "POST",
         headers: {
@@ -56,23 +81,17 @@ function userFormSubmission(form) {
     })
 
     .then(resp => resp.json())
-    .then(user => {
-        let u = new User(user.id, user.name, user.email, user.username)
-        u.renderUser();
+    .then(users => {
+        for (const user of users){
+            let u = new User(user.id, user.name, user.email, user.username)
+            u.renderUser();
+        }
     })
 
-    renderUser() {
-        let usersDiv = document.getElementById('users-container')
 
-        usersDiv.innerHTML =
-        `
-        <center>
-        <ul>
-        <li>Username: ${this.username} x Name: ${this.name} x Email: ${this.email}</li>
-        </ul>
-        <center>
-        `
-    }
+    alert("Your info has been added!")
+    form.reset()
+
 }
 
 export {userPage, userForm}
