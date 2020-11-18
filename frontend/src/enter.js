@@ -7,8 +7,6 @@ function enterPage(){
         </center>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/aR-KAldshAE" frameborder="0" allow="accelerometer; autoplay="1"; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </section>
-
-        <div id="users-form"></div>
         `
         )
 }

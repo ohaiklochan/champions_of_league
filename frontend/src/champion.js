@@ -7,7 +7,7 @@ class Champion {
   }
 }
 
-const BASE_URL = "http://127.0.0.1:8887/"
+const BASE_URL = "http://127.0.0.1:3000"
 const championForm = document.getElementById('champion-form')
 
 function championsPage() {
@@ -92,7 +92,7 @@ function createChampionCards(champion) {
 function deleteChampion(event, id){
   event.target.parentNode.remove()
 
-  fetch(`${BASE_URL}/champions/${id}`, {
+  fetch(`${BASE_URL}/champions/${champion.id}`, {
       method: 'DELETE'
   })
 }
@@ -117,11 +117,6 @@ function championFormData(form) {
         'Accept': 'application/json' },
 
       body: JSON.stringify(body)
-  })
-  .then(resp => resp.json())
-  .then(champion => {
-    let c = new Champion(champion.id, champion.name, champion.title, champion.image, champion.type)
-    c.renderChampions();
   })
 
   alert("Champion has been added!")

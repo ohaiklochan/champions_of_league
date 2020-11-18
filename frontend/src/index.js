@@ -1,14 +1,16 @@
-const BASE_URL = "http://127.0.0.1:8887/"
+const BASE_URL = "http://127.0.0.1:3000"
 
 import {enterPage} from './enter.js'
 import {championsPage, championForm} from './champion.js'
 import {typesPage} from './type.js'
+import {userPage} from './user.js'
 
 const pageName = document.querySelector('#page')
 const routes = {
     '/': enterPage,
     '/champions': championsPage,
-    '/types': typesPage
+    '/types': typesPage,
+    '/user': userPage
 }
 
 function router(event){
