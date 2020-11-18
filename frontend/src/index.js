@@ -28,7 +28,6 @@ function pageReset(){
     `
 
     championForm.style.display = 'none'
-
 }
 
 window.addEventListener('hashchange', router)

@@ -78,8 +78,6 @@ a {
   grid-gap: 3px;
   
 }
-
-
 .page{
   display: grid;  
   grid-template-columns: auto;

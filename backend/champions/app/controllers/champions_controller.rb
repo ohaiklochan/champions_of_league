@@ -18,7 +18,8 @@ class ChampionsController < ApplicationController
     @champion = Champion.create(
       name: params[:name],
       title: params[:title],
-      image: params[:image]
+      image: params[:image],
+      type: params[:type]
     )
     render json: @champion
   end
