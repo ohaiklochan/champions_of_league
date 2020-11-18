@@ -17,7 +17,7 @@ class User {
         <center>
         `
     }
-}
+} 
 
 const BASE_URL = "http://127.0.0.1:3000"
 const userForm = document.getElementById('user-form')
@@ -80,13 +80,13 @@ function userFormSubmission(form) {
         body: JSON.stringify(user)
     })
 
-    .then(resp => resp.json())
-    .then(users => {
-        for (const user of users){
-            let u = new User(user.id, user.name, user.email, user.username)
-            u.renderUser();
-        }
-    })
+    // .then(resp => resp.json())
+    // .then(users => {
+    //     for (const user of users){
+    //         let u = new User(user.id, user.name, user.email, user.username)
+    //         u.renderUser();
+    //     }
+    // })
 
 
     alert("Your info has been added!")
