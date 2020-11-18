@@ -1,8 +1,9 @@
 class Champion {
-  constructor(name, title, image) {
+  constructor(name, title, image, type) {
     this.name = name;
     this.title = title;
     this.image = image;
+    this.type = type;
   }
 }
 
@@ -19,7 +20,24 @@ function championsPage() {
                 <input name="image">
                 <label>Title</label>
                 <input type="text" name="title">
-                <input id="submit" type="submit" value="Add Character!">
+                <label>Type</label>
+                <select name="type">
+                    <option value="Juggernaut">Juggernaut</option>
+                    <option value="Burst">Burst</option>
+                    <option value="Assassin">Assassin</option>
+                    <option value="Vanguard">Vanguard</option>
+                    <option value="Battlemage">Battlemage</option>
+                    <option value="Marksman">Marksman</option>
+                    <option value="Specialist">Specialist</option>
+                    <option value="Catcher">Catcher</option>
+                    <option value="Warden">Warden</option>
+                    <option value="Diver">Diver</option>
+                    <option value="Skirmisher">Skirmisher</option>
+                    <option value="Artillery">Artillery</option>
+                    <option value="Enchanter">Enchanter</option>
+                    <option value="None">No Type Known</option>
+                </select>
+                <input id="submit" type="submit" value="Add Champion!">
             </form>
     `
 championForm.addEventListener('submit', (event) => {
@@ -51,6 +69,7 @@ function createChampionCards(champion) {
       const name = document.createElement('h2')
       const picture = document.createElement('img')
       const title = document.createElement('h3')
+      const type = document.createElement('p')
       const deleteButton = document.createElement('button')
   
       card.className = 'champion-cards'
@@ -58,13 +77,14 @@ function createChampionCards(champion) {
       picture.className = 'pictures'
       name.innerText = champion.name
       picture.src = champion.image
-      title.innerText = `${champion.title}`
+      title.innerText = champion.title
+      type.innerText = champion.type
       deleteButton.innerText = "X"
       deleteButton.id = 'delete-button'
 
       deleteButton.addEventListener('click', (event) => deleteChampion(event, champion.id))
 
-      card.append(deleteButton, name, picture, title)
+      card.append(deleteButton, name, picture, title, type)
       championCardContainer.appendChild(card)
   }
 // }
@@ -82,10 +102,12 @@ function championFormData(form) {
   const championName = formData.get('name')
   const championTitle = formData.get('title')
   const championImage = formData.get('image')
+  const championType = formData.get('type')
   const body = {
       name: championName,
       title: championTitle,
-      image: championImage
+      image: championImage,
+      type: championType
   }
   createChampionCards(body)
   fetch(`${BASE_URL}/champions`, {
@@ -98,7 +120,7 @@ function championFormData(form) {
   })
   .then(resp => resp.json())
   .then(champion => {
-    let c = new Champion(champion.id, champion.name, champion.title, champion.image)
+    let c = new Champion(champion.id, champion.name, champion.title, champion.image, champion.type)
     c.renderChampions();
   })
 

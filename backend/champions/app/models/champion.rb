@@ -1,4 +1,4 @@
 class Champion < ApplicationRecord
     belongs_to :user
-    has_many :abilities
+    has_many :types
 end
