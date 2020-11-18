@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create]
+  resources :users, only: [:create, :index]
   post "login", to: "authentication#login"
   resources :champions
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

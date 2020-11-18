@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_210048) do
     t.string "name"
     t.string "title"
     t.string "image"
-    t.string "type"
+    t.string "tags"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_11_09_210048) do
     t.string "name"
     t.string "email"
     t.string "username"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

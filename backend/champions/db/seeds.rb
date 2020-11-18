@@ -8,8 +8,9 @@
 require 'httparty'
 
 Champion.destroy_all
+User.destroy_all
 
-def self.get_data
+
     lol_champions = HTTParty.get "https://raw.githubusercontent.com/ngryman/lol-champions/master/champions.json"
 
     lol_champions_array = JSON.parse(lol_champions)
@@ -17,10 +18,15 @@ def self.get_data
         name = champion_details["name"]
         title = champion_details["title"]
         image = champion_details["icon"]
+        tags = champion_details["tags"]
 
-        Champion.new(name: name, title: title, image: image)
+
+c = Champion.create(name: name, title: title, image: image, tags: tags)
+# byebug
     end
-end
+
+    User.create(name: "Demo User", email: "demo@user.com", username: "DemoUser")
+
 
 # lol_champions_array = [
 #     { name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png" },

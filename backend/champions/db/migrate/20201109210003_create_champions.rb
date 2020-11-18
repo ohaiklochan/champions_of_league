@@ -4,7 +4,7 @@ class CreateChampions < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :title
       t.string :image
-      t.string :type
+      t.string :tags
 
       t.timestamps
     end
