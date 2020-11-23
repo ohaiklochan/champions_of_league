@@ -4,33 +4,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Champions of League</title>
     <link rel="stylesheet" href="index.css">
+    <script src="src/user.js"></script>
+    <script src="src/champion.js"></script>
   
 </head>
-<body id="body">
-    <header>
-        <!-- <h1 id="page-name">Champions of League</h1> -->
-       
-            <ul>
-               <li><a href="#">Home</a></li> 
-                <li><a href="#/champions">Champions</a></li>
-                <li><a href="#/account">Account</a></li>
-            </ul>
-        
-    </header>
+<body>
 
-    <h1 id="page"></h1>
-    <main>
-        <form id="champion-form"></form>
-        <div id="card-container"></div>
-        <p id="champion-types"></p>
-        <form id="user-form"></form>
-        <div id="users-container"></div>
-    </main>
+    <div class="page-title">
+        <section id="music">
+        <center>
+            <h1>Champions of</h1> <img src="img/backgrounds/lol-logo-rendered-hi-res.png" width="300" height="150">
+        </center>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/aR-KAldshAE" frameborder="0" allow="accelerometer; autoplay="1"; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section></div>
+            <div id="container">
+                <div id="form-container">
+                    <form id="user-form">
+                        <label>Enter Your Name:</label>
+                        <input type="text" id="new-user-body" placeholder="Enter Your Name"/>
+                        <input type="submit"/>
+                    </form>
+                </div>
+            </div>
+        <div id="champions-container" class="champions-container hidden" >
   
-    <script type="module" src="src/index.js"></script>
-    <!-- <footer>
-        <div id="users-container"></div>
-        </footer> -->
+        </div>
     
 </body>
 </html>
