@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # require 'httparty'
 
-Champion.destroy_all
-User.destroy_all
+# Champion.destroy_all
+# User.destroy_all
 
 
     # lol_champions = HTTParty.get "https://raw.githubusercontent.com/ngryman/lol-champions/master/champions.json"
@@ -36,7 +36,7 @@ User.destroy_all
 # lol_champions_array.each do |champions|
 #     Champion.where(champions).first_or_create
 # end
-Champion.create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png", tags: "Fighter, Tank")
+# Champion.create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png", tags: "Fighter, Tank", user_id: user_id)
 # Champion.create(name: "Ahri", title: "The Darkin Blade", image: "img/champions/AhriSquare.png")
 # Champion.create(name: "Akali", title: "The Darkin Blade", image: "img/champions/AkaliSquare.png")
 # Champion.create(name: "Alistar", title: "The Darkin Blade", image: "img/champions/AlistarSquare.png")
