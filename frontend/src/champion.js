@@ -30,14 +30,14 @@ class Champion {
       <input id="submit" type="submit" value="Add Champion!">
       </form>
        `
- 
+
       body.insertAdjacentHTML('beforeend', form)
       Champion.postChampion(user_id)
   }
 
   static postChampion(user_id) {
       let newForm = document.getElementById('new-champion-form')
-      newForm.addEventListener('submit', function(e){
+      newForm.addEventListener('submit', function(e) {
           e.preventDefault()
           fetch(`${BASE_URL}/champions`,{
               method: 'POST',
@@ -47,10 +47,10 @@ class Champion {
               },
               body: JSON.stringify({
                   champion: {
-                      name: e.target.children[1].value,
-                      image: e.target.children[3].value,
-                      title: e.target.children[5].value,
-                      tags: e.target.children[7].value,
+                      name: name,
+                      image: image,
+                      title: title,
+                      tags: tags,
                       user_id: user_id
                   }
               })
@@ -74,13 +74,13 @@ class Champion {
 
   
   appendChampion() {
-      let cc = document.getElementsByClassName('champions-container')
+      let champsContainer = document.getElementsByClassName('champions-container')
       let p = document.createElement('p')
       p.setAttribute('data-id', this.id)
       p.innerHTML = `${this.name}</br>${this.image}</br>${this.title}</br>${this.tags}`
       let deleteButton = `<button type="button" id="${this.id}">X</button>`
       p.insertAdjacentHTML('beforeend', deleteButton)
-      cc[0].appendChild(p)
+      champsContainer[0].appendChild(p)
       let button = document.getElementById(`${this.id}`)
       this.deleteChampion(button)
   }
