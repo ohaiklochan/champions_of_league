@@ -52,7 +52,7 @@ class User {
         let champContainer = document.getElementById('champions-container')
         champContainer.classList.remove('hidden')
         let Greeting = document.createElement('p');
-        Greeting.innerHTML = `<h1>GLHF ${this.name}!</h1>`
+        Greeting.innerHTML = `<h1>GLHF ${this.name}! Let's add some champions!</h1>`
         div.appendChild(Greeting);
         body.appendChild(div);
         this.champions.forEach(function(champion){
@@ -61,6 +61,6 @@ class User {
         })
     
 
-        champion.newChampionForm(this.id)
+        Champion.newChampionForm(this.id)
     }
 }

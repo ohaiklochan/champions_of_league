@@ -53,7 +53,7 @@ a {
   margin: 0px;
 }
 
-.champion-cards {
+.champions-container {
   justify-content: space-evenly;
   align-content: space-between;
   text-decoration: none;
@@ -71,7 +71,7 @@ a {
   height: 120px;
   margin: 0px;
 }
-#card-container {
+#champions-container {
   justify-content: center;
   display: grid;  
   grid-template-columns: auto;
@@ -84,23 +84,12 @@ a {
   grid-gap: 3px;
 }
 
-#name-of-page{
-  color: rgb(0, 0, 0);
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  text-align: center;
+.user-greeting {
   margin: auto;
-  width: 20%;
-}
-#enter{
-  color: rgb(0, 0, 0);
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  text-align: center;
-  margin: auto;
-  width: 40%;
+  margin-top: 10px;
+  width: 60%;
+  padding: 30px;
+  font-size:  1em;
 }
 
 #users-container {
@@ -158,4 +147,23 @@ label {
   color:rgb(82, 27, 211);
   display: flex;
   float: right;
+}
+
+#new-champion-form {
+  background: rgb(0, 0, 0);
+  opacity: .8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+  width: 20%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 35px;
+  font-size: 25px;
+}
+
+.hidden {
+    display: none;
 }

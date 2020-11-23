@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     if User.find_by(:name => user_params[:name])
       @user = User.find_by(:name => user_params[:name])
-      redirect_to "users/#{user.id}"
+      redirect_to "/users/#{user.id}"
     else
       @user = User.create(user_params)
       @user.save!

@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:3000"
+// const BASE_URL = "http://127.0.0.1:3000"
 class Champion {
   constructor(champion){
       this.id = champion.id;
@@ -74,13 +74,13 @@ class Champion {
 
   
   appendChampion() {
-      let champContainer = document.getElementsByClassName('champions-container')
+      let cc = document.getElementsByClassName('champions-container')
       let p = document.createElement('p')
       p.setAttribute('data-id', this.id)
       p.innerHTML = `${this.name}</br>${this.image}</br>${this.title}</br>${this.tags}`
       let deleteButton = `<button type="button" id="${this.id}">X</button>`
       p.insertAdjacentHTML('beforeend', deleteButton)
-      bc[0].appendChild(p)
+      cc[0].appendChild(p)
       let button = document.getElementById(`${this.id}`)
       this.deleteChampion(button)
   }
