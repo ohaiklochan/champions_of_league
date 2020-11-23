@@ -34,6 +34,6 @@ class ChampionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def champion_params
-      params.require(:champion).permit(:name, :type, :image, :tags, :user_id)
+      params.require(:champion).permit(:name, :title, :image, :tags, :user_id)
     end
 end
