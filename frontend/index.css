@@ -77,11 +77,6 @@ a {
   grid-gap: 3px;
   
 }
-.page{
-  display: grid;  
-  grid-template-columns: auto;
-  grid-gap: 3px;
-}
 
 .user-greeting {
   margin: auto;
