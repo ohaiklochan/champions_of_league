@@ -7,13 +7,26 @@
     <title>Champions of League</title>
 </head>
 <body>
+    <center>
+        <h1>Champions of</h1> <img src="img/backgrounds/lol-logo-rendered-hi-res.png" width="200" height="150">
+    </center>
     <div id="new-champion-container">
         <form id="new-champion-form">
             <h2>Add New champion</h2>
+            <label for="new-champion-name">Champion Name:</label>
+            <input type="text" id="new-champion-name" placeholder="enter champion name">
             <label for="new-champion-title">Champion Title:</label>
             <input type="text" id="new-champion-title" placeholder="enter champion title">
-            <label for="new-champion-console">Console:</label>
-            <input type="text" id="new-champion-console" placeholder="enter the console">
+            <label for="new-champion-tags">Tags:</label>
+            <select name="tags">
+                <option value="Tank">Tank</option>
+                <option value="Mage">Mage</option>
+                <option value="Assassin">Assassin</option>
+                <option value="Support">Support</option>
+                <option value="Marksman">Marksman</option>
+                <option value="Fighter">Fighter</option>
+                <option value="None">No Type Known</option>
+              </select>
             <label for="new-champion-image">Image URL:</label>
             <input type="text" id="new-champion-image" placeholder="enter image url">
             <button type="submit">Add Champion</button>

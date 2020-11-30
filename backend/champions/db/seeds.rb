@@ -8,7 +8,7 @@
 require 'httparty'
 
 Champion.destroy_all
-User.destroy_all
+Backstory.destroy_all
 
 
     lol_champions = HTTParty.get "https://raw.githubusercontent.com/ngryman/lol-champions/master/champions.json"
@@ -19,6 +19,7 @@ User.destroy_all
         title = champion_details["title"]
         image = champion_details["icon"]
         tags = champion_details["tags"]
+        backstory = champion_details["details"]
 
 
 c = Champion.create(name: name, title: title, image: image, tags: tags)

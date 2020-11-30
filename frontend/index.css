@@ -1,15 +1,28 @@
-/* New Game Container */
-#new-game-container{
+body{
+  background-image: url('img/backgrounds/LolBackground.jpg');
+  background-repeat: repeat;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-shadow: .5px .5px 2px rgb(255, 255, 252);
+}
+#body{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-shadow: .5px .5px 2px rgb(255, 255, 252);
+  align-items: center;
+  align-content: center;
+}
+
+#new-champion-container{
   max-width: 1100px;
   margin: auto;
   margin-bottom: 50px;
   margin-top: 50px;
   padding-bottom:16px;
   text-align:center;
-  background-color: light-grey;
+  background-color: black;
+  opacity: .8;
 } 
 
-#new-game-form{
+#new-champion-form{
   padding: 10px;
   border-radius: 10px;
 }
@@ -20,30 +33,30 @@
   margin: 10px;
 }
 
-.game-container{
+.champion-container{
   box-sizing: border-box;
   width: 50%;
   height: 800px;
 }
 
-.game-info {
+.champion-info {
   width: 250px;
   height: 100px;
   margin-top: 12px;
   margin-bottom: 5px
 }
 
-.game-title{
+.champion-title{
   font-size: 30px;
   padding-bottom: 8px;
   margin: 0px;
-  text-align: left;
-  color: coral;
+  text-align: center;
+  color: rgb(162, 80, 255);
 }
 
 img {
-  width: 75%;
-  height: 340px;
+  width: 120px;
+  height: 120px;
   padding: 20px;
 }
 
@@ -52,18 +65,17 @@ button {
   margin: 10px
 }
 
-/* Reviews Styles */
 
-#new-review-container{
+#new-backstory-container{
   display: none;
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #f1f1f1;
   z-index: 9;
   width:550px;
   height:250px;
-  background-color: lightgrey;
+  background-color: rgb(0, 0, 0);
+  opacity: .8;
   text-align:center;
   padding: 20px
 }

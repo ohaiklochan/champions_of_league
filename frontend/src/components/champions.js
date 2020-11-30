@@ -8,9 +8,10 @@ class Champions {
 
     bindEventListeners() {
         this.newChampionForm = document.getElementById('new-champion-form')
-        this.newChampionTitle = document.getElementById('new-champion-title')
-        this.newChampionConsole = document.getElementById('new-champion-console')
+        this.newChampionName = document.getElementById('new-champion-name')
         this.newChampionImage = document.getElementById('new-champion-image')
+        this.newChampionTitle = document.getElementById('new-champion-title')
+        this.newChampionTags = document.getElementById('new-champion-tags')
         this.newChampionForm.addEventListener('submit', this.createChampion.bind(this))
         
     }
@@ -18,18 +19,20 @@ class Champions {
     createChampion(e) {
         console.log(this)
         e.preventDefault();
-        const titleValue = this.newChampionTitle.value
-        console.log(titleValue)
-        const consoleValue = this.newChampionConsole.value
+        const nameValue = this.newChampionName.value
         const imageValue = this.newChampionImage.value
+        const titleValue = this.newChampionTitle.value
+        // console.log(titleValue)
+        const tagsValue = this.newChampionTags.value
 
-        this.adapter.createChampion(titleValue, consoleValue, imageValue)
+        this.adapter.createChampion(nameValue, titleValue, imageValue, tagsValue)
         .then(champion => {
             const newChampion = new Champion(champion)
             this.champions.push(newChampion)
-            this.newChampionTitle.value = ' '
-            this.newChampionConsole.value = ' '
+            this.newChampionName.value = ' '
             this.newChampionImage.value = ' '
+            this.newChampionTitle.value = ' '
+            this.newChampionTags.value = ' '
             newChampion.renderChampionElement()
         })
     }
@@ -44,6 +47,6 @@ class Champions {
     }
 
     renderChampions() {
-        this.Champions.map(Champion => champion.renderChampionElement())
+        this.champions.map(champion => champion.renderChampionElement())
     }
 }

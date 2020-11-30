@@ -30,7 +30,7 @@ class ChampionsController < ApplicationController
   def destroy
     @champion = Champion.find(params[:id])
     @champion.delete
-    render json: {@championId: @backstory.id
+    render json: {championId: @backstory.id}
   end
 
   private
