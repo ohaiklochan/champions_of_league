@@ -1,7 +1,7 @@
 // The adapter talks to the API
 class ChampionsAdapter {
     constructor() {
-        this.baseUrl = 'http://localhost:3000/champions'
+        this.baseUrl = `${BASE_URL}/champions`
     }
 
     getChampions() {
@@ -9,11 +9,13 @@ class ChampionsAdapter {
         .then(res => res.json())
     }
 
-    createChampion(titleValue, consoleValue, imageValue) {
+    createChampion(nameValue, titleValue, imageValue, tagsValue) {
         const champion = {
+            name: nameValue,
+            image: imageValue,
             title: titleValue,
-            console: consoleValue,
-            image: imageValue
+            tags: tagsValue
+            
     
         };
         return fetch(this.baseUrl, {

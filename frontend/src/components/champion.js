@@ -1,10 +1,11 @@
 class Champion {
     constructor(championJSON) {
         this.id = championJSON.id
-        this.title = championJSON.title
-        this.console = championJSON.console
+        this.name = championJSON.name
         this.image = championJSON.image
-        this.reviews = championJSON.reviews
+        this.title = championJSON.title
+        this.tags = championJSON.tags
+        this.backstories = championJSON.backstories
     }
 
     renderChampionElement() {
@@ -25,13 +26,13 @@ class Champion {
             this.deleteChampion(`${this.id}`)
         })
 
-        const reviewButton = document.createElement("BUTTON")
-        reviewButton.setAttribute("id", `review-button-${this.id}`)
-        reviewButton.setAttribute("onclick", "openForm()")
-        reviewButton.innerHTML = "Add Champion Review"
-        championBlock.appendChild(reviewButton)
+        const backstoryButton = document.createElement("BUTTON")
+        backstoryButton.setAttribute("id", `backstory-button-${this.id}`)
+        backstoryButton.setAttribute("onclick", "openForm()")
+        backstoryButton.innerHTML = "Add Champion Backstory"
+        championBlock.appendChild(backstoryButton)
 
-        reviewButton.addEventListener('click', this.newReviewForm.bind(this))
+        backstoryButton.addEventListener('click', this.newBackstoryForm.bind(this))
 
         const image = document.createElement('img')
         image.setAttribute("class", "image")
@@ -45,101 +46,101 @@ class Champion {
 
         this.createInfo(championInfo)
 
-        // Create the Review Element
-        const reviewInfo = document.createElement('div')
-        reviewInfo.className = "review-info"
-        championBlock.appendChild(reviewInfo)
+        // Create the Backstory Element
+        const backstoryInfo = document.createElement('div')
+        backstoryInfo.className = "backstory-info"
+        championBlock.appendChild(backstoryInfo)
 
-        this.infoReview(reviewInfo)
+        this.infoBackstory(backstoryInfo)
 
     }
 
-    newReviewForm(e) {
+    newBackstoryForm(e) {
         e.preventDefault();
 
-        const newReviewForm = document.getElementById('new-review-form')
+        const newBackstoryForm = document.getElementById('new-backstory-form')
         const submitButton = document.createElement("button")
         submitButton.innerHTML = "Add"
-        submitButton.id = "review-submit"
+        submitButton.id = "backstory-submit"
         submitButton.type = "submit"
         const buttonDiv = document.getElementById("buttons")
         buttonDiv.appendChild(submitButton)
-        submitButton.addEventListener('click', this.submitReviewInputs.bind(this))
+        submitButton.addEventListener('click', this.submitBackstoryInputs.bind(this))
     }
 
-    submitReviewInputs(e) {
+    submitBackstoryInputs(e) {
         e.preventDefault();
 
         const buttonDiv = document.getElementById("buttons")
-        const submitButton = document.getElementById("review-submit")
-        const form = document.getElementById('new-review-form')
+        const submitButton = document.getElementById("backstory-submit")
+        const form = document.getElementById('new-backstory-form')
 
-        const newReviewBody = document.getElementById('new-review-body')
-        const reviewBox = document.getElementById(`review-${this.id}`)
+        const newBackstoryBody = document.getElementById('new-backstory-body')
+        const backstoryBox = document.getElementById(`backstory-${this.id}`)
         const pDiv = document.createElement('p')
-        reviewBox.appendChild(pDiv)
+        backstoryBox.appendChild(pDiv)
 
-        const reviewAddition = {
+        const backstoryAddition = {
             book_id: this.id ,
-            content: newReviewBody.value,
+            content: newBackstoryBody.value,
         }
 
-        fetch('http://localhost:3000/reviews', {
+        fetch(`${BASE_URL}/backstories`, {
             method:'POST',
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body:JSON.stringify(reviewAddition)
+            body:JSON.stringify(backstoryAddition)
         })
         .then(res => res.json())
-        .then(review => {
-        // console.log(review)
-        // console.log(review.body)
+        .then(backstory => {
+        // console.log(backstory)
+        // console.log(backstory.body)
 
-        pDiv.innerHTML = review.content
-        newReviewBody.value = ' '
+        pDiv.innerHTML = backstory.content
+        newBackstoryBody.value = ' '
         buttonDiv.removeChild(submitButton)
         closeForm()
         })
 
     }
 
-    // Creates the current Review
+    // Creates the current backstory
     createInfo(championElement) {
         const title = document.createElement('h3')
         title.setAttribute("class", 'champion-title')
         title.innerHTML = this.title
         championElement.appendChild(title)
 
-        const console = document.createElement('h3')
-        console.setAttribute("class", 'champion-console')
-        console.innerHTML = `Console: ${this.console}`
-        championElement.appendChild(console)
+        const tags = document.createElement('h3')
+        tags.setAttribute("class", 'champion-tags')
+        tags.innerHTML = this.tags
+        championElement.appendChild(tags)
     }
 
-    infoReview(element) {
-        const reviewTitle = document.createElement('h4')
-        reviewTitle.setAttribute("class", 'review-header')
-        reviewTitle.innerHTML = 'What I think:'
-        element.appendChild(reviewTitle)
+    infoBackstory(element) {
+        const backstoryTitle = document.createElement('h4')
+        backstoryTitle.setAttribute("class", 'backstory-header')
+        backstoryTitle.innerHTML = 'Backstory:'
+        element.appendChild(backstoryTitle)
 
-        const reviews = document.createElement('div')
-        reviews.setAttribute("id", `review-${this.id}`)
-        element.appendChild(reviews)
+        const backstories = document.createElement('div')
+        backstories.setAttribute("id", `backstory-${this.id}`)
+        element.appendChild(backstories)
 
-        // This will map through the champions reviews and add to the review elements
-        reviews.innerHTML = this.reviews.map(review => this.reviewBody(review)).join('')
+        // This will map through the champions backstorys and add to the backstory elements
+        backstories.innerHTML = this.backstories.map(backstory => this.backstoryBody(backstory)).join('')
     }
 
-    reviewBody(review){
-        // console.log(review)
-        return `<p>${review.content}</p>`
+    backstoryBody(backstory){
+        // console.log(backstory)
+        return `<p>${backstory.content}</p>`
     }
 
     deleteChampion(id){
         console.log(id)
-        return fetch('http://localhost:3000/games' + '/' + id, {
+        return fetch(`${BASE_URL}/champions` + '/' + id, {
         method: 'DELETE',
         headers: {
             "Content-Type": "application/json",

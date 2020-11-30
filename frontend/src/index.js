@@ -2,10 +2,10 @@
 const app = new App();
 
 
-// These function will open and close the Review Form
+// These function will open and close the backstory Form
 function openForm(){
-    document.getElementById('new-review-container').style.display = "block";
+    document.getElementById('new-backstory-container').style.display = "block";
 }
 function closeForm() {
-    document.getElementById('new-review-container').style.display = "none";
+    document.getElementById('new-backstory-container').style.display = "none";
 }

@@ -17,14 +17,20 @@ class ChampionsController < ApplicationController
   # POST /champions
   def create
     @champion = Champion.create(champion_params)
-    @champion.save!
+    render json: @champion
+  end
+
+  def update
+    @champion = Champion.find(params[:id])
+    @champion.update(champion_params)
     render json: @champion
   end
 
   # DELETE /champions/1
   def destroy
-    @champion = Champion.find_by(:id => params[:id]).destroy
-    render json: @champion
+    @champion = Champion.find(params[:id])
+    @champion.delete
+    render json: {@championId: @backstory.id
   end
 
   private
@@ -35,6 +41,6 @@ class ChampionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def champion_params
-      params.require(:champion).permit(:name, :title, :image, :tags, :user_id)
+      params.require(:champion).permit(:name, :title, :image, :tags)
     end
 end

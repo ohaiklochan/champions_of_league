@@ -15,23 +15,18 @@ class BackstoriesController < ApplicationController
 
   # POST /backstories
   def create
-    @backstory = Backstory.new(backstory_params)
-
-    if @backstory.save
-      render json: @backstory, status: :created, location: @backstory
-    else
-      render json: @backstory.errors, status: :unprocessable_entity
-    end
+    @backstory = Backstory.create(backstory_params)
+    render json: @backstory
   end
 
-  # PATCH/PUT /backstories/1
-  def update
-    if @backstory.update(backstory_params)
-      render json: @backstory
-    else
-      render json: @backstory.errors, status: :unprocessable_entity
-    end
-  end
+  # # PATCH/PUT /backstories/1
+  # def update
+  #   if @backstory.update(backstory_params)
+  #     render json: @backstory
+  #   else
+  #     render json: @backstory.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /backstories/1
   def destroy
