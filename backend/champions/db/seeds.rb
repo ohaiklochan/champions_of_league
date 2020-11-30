@@ -37,7 +37,8 @@ c = Champion.create(name: name, title: title, image: image, tags: tags)
 # lol_champions_array.each do |champions|
 #     Champion.where(champions).first_or_create
 # end
-# Champion.create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png", tags: "Fighter, Tank", user_id: "X")
+# c1 = Champion.create(name: "Aatrox", title: "The Darkin Blade", image: "img/champions/AatroxSquare.png", tags: "Fighter, Tank")
+# b1 = Backstory.create(content: "Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find...", champion_id: 1)
 # Champion.create(name: "Ahri", title: "The Darkin Blade", image: "img/champions/AhriSquare.png")
 # Champion.create(name: "Akali", title: "The Darkin Blade", image: "img/champions/AkaliSquare.png")
 # Champion.create(name: "Alistar", title: "The Darkin Blade", image: "img/champions/AlistarSquare.png")

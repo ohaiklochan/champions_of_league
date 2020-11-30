@@ -22,7 +22,6 @@ class Champions {
         const nameValue = this.newChampionName.value
         const imageValue = this.newChampionImage.value
         const titleValue = this.newChampionTitle.value
-        // console.log(titleValue)
         const tagsValue = this.newChampionTags.value
 
         this.adapter.createChampion(nameValue, titleValue, imageValue, tagsValue)
@@ -39,7 +38,7 @@ class Champions {
 
     fetchAndLoadChampions() {
         this.adapter.getChampions()
-        .then(champions => {champions.forEach(champion => this.champions.push(new Champion(Champion)))
+        .then(champions => {champions.forEach(champion => this.champions.push(new Champion(champion)))
         })
         .then(() => {
             this.renderChampions()

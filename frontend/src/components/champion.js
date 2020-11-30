@@ -108,6 +108,11 @@ class Champion {
 
     // Creates the current backstory
     createInfo(championElement) {
+        const name = document.createElement('h1')
+        name.setAttribute("class", 'champion-name')
+        name.innerHTML = this.name
+        championElement.appendChild(name)
+
         const title = document.createElement('h3')
         title.setAttribute("class", 'champion-title')
         title.innerHTML = this.title
@@ -129,7 +134,7 @@ class Champion {
         backstories.setAttribute("id", `backstory-${this.id}`)
         element.appendChild(backstories)
 
-        // This will map through the champions backstorys and add to the backstory elements
+        // This will map through the champions backstories and add to the backstory elements
         backstories.innerHTML = this.backstories.map(backstory => this.backstoryBody(backstory)).join('')
     }
 
